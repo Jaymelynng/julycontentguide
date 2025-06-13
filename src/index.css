@@ -201,10 +201,10 @@ h4 {
 }
 
 .upload-checklist h4 {
-  color: var(--sidebar-bg);
+  color: var(--text-main);
   margin: 0 0 0.8rem 0;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .task-list {
