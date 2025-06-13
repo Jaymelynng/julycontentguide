@@ -24,6 +24,20 @@ export function FireworksSection() {
 
       <UploadChecklist items={checklistItems} section="fireworks" />
 
+      <div className="requirements">
+        <EditableContent>
+          <h3>💡 TIPS:</h3>
+        </EditableContent>
+        <EditableContent>
+          <ul>
+            <li>Capture the moment of celebration at its peak</li>
+            <li>Make sure all kids are visible and engaged</li>
+            <li>Good lighting and clear background</li>
+            <li>High energy and festive atmosphere</li>
+          </ul>
+        </EditableContent>
+      </div>
+
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
       </div>

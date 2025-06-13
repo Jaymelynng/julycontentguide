@@ -28,6 +28,20 @@ export function BoredomSection() {
 
       <UploadChecklist items={checklistItems} section="boredom" />
 
+      <div className="requirements">
+        <EditableContent>
+          <h3>💡 TIPS:</h3>
+        </EditableContent>
+        <EditableContent>
+          <ul>
+            <li>Capture authentic excitement and high energy</li>
+            <li>Film multiple short clips to get the best moments</li>
+            <li>Focus on genuine reactions and emotions</li>
+            <li>Make sure audio captures the fun and energy</li>
+          </ul>
+        </EditableContent>
+      </div>
+
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
       </div>

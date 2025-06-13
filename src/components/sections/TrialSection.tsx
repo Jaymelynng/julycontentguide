@@ -27,6 +27,20 @@ export function TrialSection() {
 
       <UploadChecklist items={checklistItems} section="trial" />
 
+      <div className="requirements">
+        <EditableContent>
+          <h3>💡 TIPS:</h3>
+        </EditableContent>
+        <EditableContent>
+          <ul>
+            <li>Capture motion and active engagement</li>
+            <li>Show coach-student interaction and high fives</li>
+            <li>Focus on the energy and excitement of learning</li>
+            <li>Make sure the photo shows the class atmosphere</li>
+          </ul>
+        </EditableContent>
+      </div>
+
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
       </div>

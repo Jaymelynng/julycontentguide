@@ -26,6 +26,20 @@ export function ConfidenceSection() {
 
       <UploadChecklist items={checklistItems} section="confidence" />
 
+      <div className="requirements">
+        <EditableContent>
+          <h3>💡 TIPS:</h3>
+        </EditableContent>
+        <EditableContent>
+          <ul>
+            <li>Focus on authentic emotions and genuine moments</li>
+            <li>Capture the "I did it!" feeling</li>
+            <li>Good lighting to show facial expressions clearly</li>
+            <li>Let the joy and pride shine through naturally</li>
+          </ul>
+        </EditableContent>
+      </div>
+
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
       </div>

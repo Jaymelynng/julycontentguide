@@ -22,6 +22,20 @@ export function BalanceSection() {
 
       <UploadChecklist items={checklistItems} section="balance" />
 
+      <div className="requirements">
+        <EditableContent>
+          <h3>💡 TIPS:</h3>
+        </EditableContent>
+        <EditableContent>
+          <ul>
+            <li>Use smooth zoom transitions for dramatic effect</li>
+            <li>Capture different angles for variety</li>
+            <li>Focus on precision and control in movements</li>
+            <li>Make sure each video shows clear skill progression</li>
+          </ul>
+        </EditableContent>
+      </div>
+
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
       </div>
