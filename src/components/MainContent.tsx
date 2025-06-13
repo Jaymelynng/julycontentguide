@@ -12,6 +12,7 @@ import { BalanceSection } from './sections/BalanceSection';
 import { GuidelinesSection } from './sections/GuidelinesSection';
 import { TechnicalSection } from './sections/TechnicalSection';
 import { SubmissionSection } from './sections/SubmissionSection';
+import { AdminSection } from './sections/AdminSection';
 
 interface MainContentProps {
   activeSection: string;
@@ -44,6 +45,8 @@ export function MainContent({ activeSection }: MainContentProps) {
         return <TechnicalSection />;
       case 'submission':
         return <SubmissionSection />;
+      case 'admin':
+        return <AdminSection />;
       default:
         return <IntroSection />;
     }

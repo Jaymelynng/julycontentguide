@@ -1,59 +1,167 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useGym } from './GymContext';
+import { supabase } from '../lib/supabase';
 
 interface ProgressContextType {
   checkedItems: Record<string, Set<string>>;
   toggleItem: (section: string, itemId: string) => void;
   getCheckedItems: (section: string) => Set<string>;
   clearProgress: () => void;
+  isLoading: boolean;
 }
 
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
 
+// Generate a unique session ID for this browser session
+const getSessionId = () => {
+  let sessionId = localStorage.getItem('user-session-id');
+  if (!sessionId) {
+    sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    localStorage.setItem('user-session-id', sessionId);
+  }
+  return sessionId;
+};
+
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const { selectedGym } = useGym();
   const [checkedItems, setCheckedItems] = useState<Record<string, Set<string>>>({});
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Load progress from localStorage when gym changes
+  // Load progress from Supabase when gym changes
   useEffect(() => {
     if (selectedGym) {
-      const savedProgress = localStorage.getItem(`gym-progress-${selectedGym.id}`);
-      if (savedProgress) {
-        try {
-          const parsed = JSON.parse(savedProgress);
-          const converted: Record<string, Set<string>> = {};
-          
-          Object.keys(parsed).forEach(section => {
-            converted[section] = new Set(parsed[section]);
-          });
-          
-          setCheckedItems(converted);
-        } catch (error) {
-          console.error('Error loading progress:', error);
-          setCheckedItems({});
-        }
-      } else {
-        setCheckedItems({});
-      }
+      loadProgressFromSupabase();
     } else {
       setCheckedItems({});
     }
   }, [selectedGym]);
 
-  // Save progress to localStorage whenever it changes
-  useEffect(() => {
-    if (selectedGym && Object.keys(checkedItems).length > 0) {
-      const toSave: Record<string, string[]> = {};
+  const loadProgressFromSupabase = async () => {
+    if (!selectedGym) return;
+    
+    setIsLoading(true);
+    try {
+      const sessionId = getSessionId();
       
-      Object.keys(checkedItems).forEach(section => {
-        toSave[section] = Array.from(checkedItems[section]);
-      });
-      
-      localStorage.setItem(`gym-progress-${selectedGym.id}`, JSON.stringify(toSave));
-    }
-  }, [checkedItems, selectedGym]);
+      const { data, error } = await supabase
+        .from('progress_tracking')
+        .select('section, item_id, completed')
+        .eq('gym_id', selectedGym.id)
+        .eq('user_session', sessionId)
+        .eq('completed', true);
 
-  const toggleItem = (section: string, itemId: string) => {
+      if (error) {
+        console.error('Error loading progress:', error);
+        // Fall back to localStorage if Supabase fails
+        loadProgressFromLocalStorage();
+        return;
+      }
+
+      const converted: Record<string, Set<string>> = {};
+      
+      if (data) {
+        data.forEach(item => {
+          if (!converted[item.section]) {
+            converted[item.section] = new Set();
+          }
+          converted[item.section].add(item.item_id);
+        });
+      }
+      
+      setCheckedItems(converted);
+    } catch (error) {
+      console.error('Error loading progress:', error);
+      // Fall back to localStorage if Supabase fails
+      loadProgressFromLocalStorage();
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const loadProgressFromLocalStorage = () => {
+    if (!selectedGym) return;
+    
+    const savedProgress = localStorage.getItem(`gym-progress-${selectedGym.id}`);
+    if (savedProgress) {
+      try {
+        const parsed = JSON.parse(savedProgress);
+        const converted: Record<string, Set<string>> = {};
+        
+        Object.keys(parsed).forEach(section => {
+          converted[section] = new Set(parsed[section]);
+        });
+        
+        setCheckedItems(converted);
+      } catch (error) {
+        console.error('Error loading local progress:', error);
+        setCheckedItems({});
+      }
+    } else {
+      setCheckedItems({});
+    }
+  };
+
+  const saveProgressToSupabase = async (section: string, itemId: string, completed: boolean) => {
+    if (!selectedGym) return;
+    
+    try {
+      const sessionId = getSessionId();
+      
+      if (completed) {
+        // Insert or update the progress record
+        const { error } = await supabase
+          .from('progress_tracking')
+          .upsert({
+            gym_id: selectedGym.id,
+            gym_name: selectedGym.name,
+            section,
+            item_id: itemId,
+            completed: true,
+            completed_at: new Date().toISOString(),
+            user_session: sessionId
+          }, {
+            onConflict: 'gym_id,section,item_id,user_session'
+          });
+
+        if (error) {
+          console.error('Error saving progress:', error);
+        }
+      } else {
+        // Delete the progress record
+        const { error } = await supabase
+          .from('progress_tracking')
+          .delete()
+          .eq('gym_id', selectedGym.id)
+          .eq('section', section)
+          .eq('item_id', itemId)
+          .eq('user_session', sessionId);
+
+        if (error) {
+          console.error('Error removing progress:', error);
+        }
+      }
+    } catch (error) {
+      console.error('Error with Supabase operation:', error);
+    }
+  };
+
+  const saveProgressToLocalStorage = () => {
+    if (!selectedGym || Object.keys(checkedItems).length === 0) return;
+    
+    const toSave: Record<string, string[]> = {};
+    
+    Object.keys(checkedItems).forEach(section => {
+      toSave[section] = Array.from(checkedItems[section]);
+    });
+    
+    localStorage.setItem(`gym-progress-${selectedGym.id}`, JSON.stringify(toSave));
+  };
+
+  const toggleItem = async (section: string, itemId: string) => {
+    const currentlyChecked = checkedItems[section]?.has(itemId) || false;
+    const newCheckedState = !currentlyChecked;
+
+    // Update local state immediately for responsive UI
     setCheckedItems(prev => {
       const newChecked = { ...prev };
       
@@ -63,24 +171,52 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         newChecked[section] = new Set(newChecked[section]);
       }
       
-      if (newChecked[section].has(itemId)) {
-        newChecked[section].delete(itemId);
-      } else {
+      if (newCheckedState) {
         newChecked[section].add(itemId);
+      } else {
+        newChecked[section].delete(itemId);
       }
       
       return newChecked;
     });
+
+    // Save to both Supabase and localStorage
+    await saveProgressToSupabase(section, itemId, newCheckedState);
+    
+    // Save to localStorage as backup
+    setTimeout(() => {
+      saveProgressToLocalStorage();
+    }, 100);
   };
 
   const getCheckedItems = (section: string): Set<string> => {
     return checkedItems[section] || new Set();
   };
 
-  const clearProgress = () => {
-    if (selectedGym) {
+  const clearProgress = async () => {
+    if (!selectedGym) return;
+    
+    try {
+      const sessionId = getSessionId();
+      
+      // Clear from Supabase
+      const { error } = await supabase
+        .from('progress_tracking')
+        .delete()
+        .eq('gym_id', selectedGym.id)
+        .eq('user_session', sessionId);
+
+      if (error) {
+        console.error('Error clearing progress:', error);
+      }
+
+      // Clear from localStorage
       localStorage.removeItem(`gym-progress-${selectedGym.id}`);
+      
+      // Clear local state
       setCheckedItems({});
+    } catch (error) {
+      console.error('Error clearing progress:', error);
     }
   };
 
@@ -89,7 +225,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       checkedItems,
       toggleItem,
       getCheckedItems,
-      clearProgress
+      clearProgress,
+      isLoading
     }}>
       {children}
     </ProgressContext.Provider>
