@@ -6,7 +6,7 @@ import { GymSelector } from '../GymSelector';
 
 export function BoredomSection() {
   const checklistItems = [
-    { id: 'boredom1', label: 'Sprinting/Water Games', type: 'photo' as const },
+    { id: 'boredom1', label: 'A group of kids bursts with excitement and high energy.', type: 'photo' as const },
     { id: 'boredom2', label: 'Learning a New Skill', type: 'photo' as const },
     { id: 'boredom3', label: 'Friends Having Fun', type: 'photo' as const },
     { id: 'boredom4', label: 'Dancing or Silly Moments', type: 'photo' as const },
