@@ -72,7 +72,7 @@ export function RiddleSection() {
 
       <div className="requirements">
         <EditableContent>
-          <h3>📋 Requirements:</h3>
+          <h3>💡 TIPS:</h3>
         </EditableContent>
         <EditableContent>
           <p>Clear, bright photos with no blur. If you can get a coach helping, that's extra awesome!</p>

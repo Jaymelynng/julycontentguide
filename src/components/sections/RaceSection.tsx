@@ -33,7 +33,7 @@ export function RaceSection() {
 
       <div className="requirements">
         <EditableContent>
-          <h3>📋 Requirements:</h3>
+          <h3>💡 TIPS:</h3>
         </EditableContent>
         <EditableContent>
           <ul>
@@ -45,7 +45,7 @@ export function RaceSection() {
 
       <div className="protips">
         <EditableContent>
-          <h3>💡 Pro Tips:</h3>
+          <h3>💡 Pro TIPS:</h3>
         </EditableContent>
         <EditableContent>
           <ul>

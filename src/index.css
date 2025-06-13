@@ -150,12 +150,12 @@ h4 {
 }
 
 .requirements, .protips {
-  background: var(--dropdown-bg);
+  background: var(--text-main);
   border-radius: .6rem;
   padding: 0.7rem 1.1rem;
   margin-bottom: 0.5rem;
   font-size: .99rem;
-  color: var(--text-main);
+  color: var(--white);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -163,6 +163,23 @@ h4 {
   border-left: 5px solid var(--sidebar-bg);
   background: var(--main-bg);
   font-style: italic;
+  color: var(--text-main);
+}
+
+.requirements h3 {
+  color: var(--white) !important;
+}
+
+.requirements ul {
+  color: var(--white);
+}
+
+.requirements li {
+  color: var(--white);
+}
+
+.requirements p {
+  color: var(--white);
 }
 
 .content-type-badge {
