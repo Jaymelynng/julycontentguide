@@ -33,16 +33,7 @@ export function RaceSection() {
           <ul>
             <li>Loud cheering (louder the better!)</li>
             <li>Steady surface</li>
-          </ul>
-        </EditableContent>
-      </div>
 
-      <div className="protips">
-        <EditableContent>
-          <h3>💡 Pro TIPS:</h3>
-        </EditableContent>
-        <EditableContent>
-          <ul>
             <li>Highlight genuine reactions and celebrations at the end</li>
           </ul>
         </EditableContent>

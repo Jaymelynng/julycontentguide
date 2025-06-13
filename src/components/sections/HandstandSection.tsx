@@ -35,16 +35,6 @@ export function HandstandSection() {
           <ul>
             <li>Clean background, good lighting</li>
             <li>Steady surface</li>
-          </ul>
-        </EditableContent>
-      </div>
-      
-      <div className="protips">
-        <EditableContent>
-          <h3>💡 Pro TIPS:</h3>
-        </EditableContent>
-        <EditableContent>
-          <ul>
             <li>Film multiple attempts to capture the best footage</li>
             <li>Capture authentic excitement and fun moments</li>
           </ul>
