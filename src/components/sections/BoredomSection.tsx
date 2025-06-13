@@ -32,10 +32,6 @@ export function BoredomSection() {
         <span className="fun-divider-icon">🚀</span>
       </div>
 
-      <div className="multiple-files-note">
-        💡 Since you're uploading 5 videos, name them: BeatBoredom_1, BeatBoredom_2, BeatBoredom_3, BeatBoredom_4, BeatBoredom_5
-      </div>
-
       <GymSelector postType="multiple-videos" />
     </div>
   );

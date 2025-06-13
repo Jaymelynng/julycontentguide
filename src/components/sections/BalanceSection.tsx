@@ -79,10 +79,6 @@ export function BalanceSection() {
         </div>
       </div>
 
-      <div className="multiple-files-note">
-        💡 Since you're uploading 3 videos, name them: BalanceReel_1, BalanceReel_2, BalanceReel_3
-      </div>
-
       <GymSelector postType="balance-videos" />
     </div>
   );

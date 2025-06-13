@@ -79,10 +79,6 @@ export function RiddleSection() {
         </EditableContent>
       </div>
 
-      <div className="multiple-files-note">
-        💡 Since you're uploading 4 photos, name them: ForwardRoll_1, ForwardRoll_2, ForwardRoll_3, ForwardRoll_4
-      </div>
-
       <GymSelector postType="multiple-photos" />
     </div>
   );
