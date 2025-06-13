@@ -83,5 +83,3 @@ export function BalanceSection() {
     </div>
   );
 }
-
-export { BalanceSection }
