@@ -1,6 +1,5 @@
 import React from 'react';
-import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload, LogOut, Edit3, BarChart3 } from 'lucide-react';
-import { useGym } from '../contexts/GymContext';
+import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload, Edit3, BarChart3 } from 'lucide-react';
 import { useEditMode } from '../contexts/EditModeContext';
 
 interface SidebarProps {
@@ -25,16 +24,12 @@ const navigationItems = [
 ];
 
 export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
-  const { selectedGym, clearGym } = useGym();
   const { isEditMode, toggleEditMode } = useEditMode();
 
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
         <h2>July Content</h2>
-        <div className="user-info">
-          <span className="gym-name">{selectedGym?.name}</span>
-        </div>
       </div>
       
       <ul className="nav-list">
@@ -57,14 +52,6 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
         >
           <Edit3 size={16} />
           {isEditMode ? 'Exit Edit' : 'Edit Mode'}
-        </button>
-        
-        <button
-          onClick={clearGym}
-          className="admin-btn logout-btn"
-        >
-          <LogOut size={16} />
-          Change Gym
         </button>
       </div>
     </aside>
