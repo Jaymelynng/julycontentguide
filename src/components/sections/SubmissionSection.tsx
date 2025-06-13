@@ -264,19 +264,18 @@ export function SubmissionSection() {
 
       <div className="requirements">
         <EditableContent>
-          <h3>💡 Why the Typing Step Matters</h3>
+          <h3>💡 Why We Ask You to Name Each Piece</h3>
         </EditableContent>
         <EditableContent>
           <p>
-            The step where you type a description isn't just for file naming - it's a <strong>content quality checkpoint!</strong> 
-            When you have to describe what you're uploading, it makes you pause and think: 
-            "What am I actually submitting? Does this represent our gym well?"
+            Some content has 1 item, others have 5+ items. By having you name each piece of content as you upload, 
+            we ensure consistent file names across all your submissions.
           </p>
         </EditableContent>
         <EditableContent>
           <p>
-            This simple step helps ensure every piece of content is intentional, high-quality, and aligned with our brand. 
-            It's like a final "gut check" before you upload!
+            <strong>Important:</strong> You'll need to manually rename your files in SharePoint using the names provided. 
+            This helps us organize everything properly and makes it easy to find your content later.
           </p>
         </EditableContent>
       </div>
