@@ -1,5 +1,4 @@
 import React from 'react';
-import { useProgress } from '../contexts/ProgressContext';
 
 interface ChecklistItem {
   id: string;
@@ -12,46 +11,33 @@ interface UploadChecklistProps {
   section: string;
 }
 
-export function UploadChecklist({ items, section }: UploadChecklistProps) {
-  const { toggleItem, getCheckedItems, isLoading } = useProgress();
-  const checkedItems = getCheckedItems(section);
-
-  const handleToggle = (itemId: string) => {
-    console.log('Toggling item:', { section, itemId }); // Debug log
-    toggleItem(section, itemId);
-  };
-
+export function UploadChecklist({ items }: UploadChecklistProps) {
   return (
     <div className="upload-checklist">
       <h4>📋 What to Upload:</h4>
       
-      {isLoading && (
-        <div className="loading-indicator">
-          <span>Loading progress...</span>
-        </div>
-      )}
-      
-      <div>
-        {items.map((item) => (
-          <div key={item.id} className="upload-item">
-            <input
-              type="checkbox"
-              id={`${section}-${item.id}`}
-              className="upload-checkbox"
-              checked={checkedItems.has(item.id)}
-              onChange={() => handleToggle(item.id)}
-              disabled={isLoading}
-            />
+      <div className="task-list">
+        {items.map((item, index) => (
+          <div key={item.id} className="task-item">
+            <div className="task-number">
+              {index + 1}
+            </div>
             
-            <label htmlFor={`${section}-${item.id}`} className="upload-label">
-              {item.label}
-            </label>
-            
-            <span className={`upload-type ${item.type === 'video' ? 'video-type' : 'photo-type'}`}>
-              {item.type.toUpperCase()}
-            </span>
+            <div className="task-content">
+              <span className="task-label">
+                {item.label}
+              </span>
+              
+              <span className={`task-type ${item.type === 'video' ? 'video-type' : 'photo-type'}`}>
+                {item.type.toUpperCase()}
+              </span>
+            </div>
           </div>
         ))}
+      </div>
+      
+      <div className="task-reminder">
+        💡 <strong>Remember:</strong> Check off each task as you complete it on your own - this helps you stay organized!
       </div>
     </div>
   );
