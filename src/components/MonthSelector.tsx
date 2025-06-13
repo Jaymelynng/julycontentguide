@@ -99,7 +99,7 @@ export function MonthSelector() {
           {availableMonths.map(month => (
             <option key={month.id} value={month.id}>
               {getMonthName(month.month)} {month.year} 
-              {month.isactive ? ' (Active)' : ''}
+              {month.isActive ? ' (Active)' : ''}
             </option>
           ))}
         </select>
@@ -200,7 +200,7 @@ export function MonthSelector() {
         </h4>
         <div className="month-history-list">
           {availableMonths
-            .filter(month => !month.isactive)
+            .filter(month => !month.isActive)
             .map(month => (
               <div key={month.id} className="history-item">
                 <span>{getMonthName(month.month)} {month.year}</span>
