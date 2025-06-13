@@ -144,16 +144,9 @@ h4 {
 }
 
 .desc {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--sidebar-bg);
-  background: linear-gradient(135deg, var(--dropdown-bg), #f0e6e6);
-  padding: 1.2rem;
-  border-radius: 0.8rem;
-  border-left: 4px solid var(--sidebar-bg);
+  font-size: 1.01rem;
   margin-bottom: 0.8rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  line-height: 1.5;
+  color: var(--text-main);
 }
 
 .requirements, .protips {
