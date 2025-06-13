@@ -1102,16 +1102,48 @@ h4 {
   border-radius: 4px;
 }
 
-.edit-mode .editable {
+.edit-mode .editable,
+.edit-mode h1,
+.edit-mode h2,
+.edit-mode h3,
+.edit-mode h4,
+.edit-mode p,
+.edit-mode li,
+.edit-mode .desc,
+.edit-mode .requirements,
+.edit-mode .protips,
+.edit-mode .mission-text,
+.edit-mode .role-text,
+.edit-mode .task-label,
+.edit-mode .instruction-item span:not(.instruction-icon),
+.edit-mode .example-box,
+.edit-mode .golden-rule p {
   border: 2px dashed var(--sidebar-bg);
   padding: 4px;
   background: rgba(212, 165, 165, 0.1);
   cursor: text;
+  min-height: 20px;
 }
 
-.editable:focus {
+.edit-mode .editable:focus,
+.edit-mode h1:focus,
+.edit-mode h2:focus,
+.edit-mode h3:focus,
+.edit-mode h4:focus,
+.edit-mode p:focus,
+.edit-mode li:focus,
+.edit-mode .desc:focus,
+.edit-mode .requirements:focus,
+.edit-mode .protips:focus,
+.edit-mode .mission-text:focus,
+.edit-mode .role-text:focus,
+.edit-mode .task-label:focus,
+.edit-mode .instruction-item span:focus,
+.edit-mode .example-box:focus,
+.edit-mode .golden-rule p:focus {
   outline: 3px solid var(--sidebar-bg);
   background: var(--white);
+  border-style: solid;
 }
 
 /* Mission Page Styles */

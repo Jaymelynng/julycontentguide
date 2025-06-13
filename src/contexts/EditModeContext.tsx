@@ -17,8 +17,22 @@ export function EditModeProvider({ children }: { children: ReactNode }) {
     // Add/remove edit-mode class to body
     if (newEditMode) {
       document.body.classList.add('edit-mode');
+      // Make all text elements editable
+      setTimeout(() => {
+        const editableElements = document.querySelectorAll('.edit-mode h1, .edit-mode h2, .edit-mode h3, .edit-mode h4, .edit-mode p, .edit-mode li, .edit-mode .desc, .edit-mode .requirements, .edit-mode .protips, .edit-mode .mission-text, .edit-mode .role-text, .edit-mode .task-label, .edit-mode .example-box, .edit-mode .golden-rule p');
+        editableElements.forEach(element => {
+          if (!element.hasAttribute('contenteditable')) {
+            element.setAttribute('contenteditable', 'true');
+          }
+        });
+      }, 100);
     } else {
       document.body.classList.remove('edit-mode');
+      // Remove contenteditable from all elements
+      const editableElements = document.querySelectorAll('[contenteditable="true"]');
+      editableElements.forEach(element => {
+        element.removeAttribute('contenteditable');
+      });
     }
   };
 
