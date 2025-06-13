@@ -27,7 +27,6 @@ export function HandstandSection() {
         </div>
       </EditableContent>
 
-      <UploadChecklist items={checklistItems} />
       <UploadChecklist items={checklistItems} section="handstand" />
 
       <div className="requirements">

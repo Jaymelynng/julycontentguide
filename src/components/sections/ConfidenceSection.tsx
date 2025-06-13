@@ -24,7 +24,6 @@ export function ConfidenceSection() {
         </div>
       </EditableContent>
 
-      <UploadChecklist items={checklistItems} />
       <UploadChecklist items={checklistItems} section="confidence" />
 
       <GymSelector postType="single" />

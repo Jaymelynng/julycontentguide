@@ -41,7 +41,6 @@ export function RiddleSection() {
         </EditableContent>
       </div>
 
-      <UploadChecklist items={checklistItems} />
       <UploadChecklist items={checklistItems} section="riddle" />
 
       <div className="photo-grid">

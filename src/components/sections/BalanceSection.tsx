@@ -20,7 +20,6 @@ export function BalanceSection() {
         </h1>
       </EditableContent>
 
-      <UploadChecklist items={checklistItems} />
       <UploadChecklist items={checklistItems} section="balance" />
 
       <div className="scene-grid">

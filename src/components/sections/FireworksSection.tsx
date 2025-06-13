@@ -22,7 +22,6 @@ export function FireworksSection() {
         <div className="desc"><b>Photo Idea:</b> Capture kids throwing pit cubes in the air or celebrating in a large group.</div>
       </EditableContent>
 
-      <UploadChecklist items={checklistItems} />
       <UploadChecklist items={checklistItems} section="fireworks" />
 
       <GymSelector postType="single" />

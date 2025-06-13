@@ -26,7 +26,7 @@ export function BoredomSection() {
         <div className="desc">Create five 15-20 second video clips showcasing different summer activities that beat boredom.</div>
       </EditableContent>
 
-      <UploadChecklist items={checklistItems} />
+      <UploadChecklist items={checklistItems} section="boredom" />
 
       <div className="multiple-files-note">
         💡 Since you're uploading 5 videos, name them: BeatBoredom_1, BeatBoredom_2, BeatBoredom_3, BeatBoredom_4, BeatBoredom_5

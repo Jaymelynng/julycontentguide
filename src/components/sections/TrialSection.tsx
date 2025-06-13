@@ -25,7 +25,6 @@ export function TrialSection() {
         </div>
       </EditableContent>
 
-      <UploadChecklist items={checklistItems} />
       <UploadChecklist items={checklistItems} section="trial" />
 
       <GymSelector postType="single" />
