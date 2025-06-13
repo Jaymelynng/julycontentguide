@@ -13,7 +13,7 @@ export function HandstandSection() {
     <div>
       <EditableContent>
         <h1>
-          3. Handstand Contest!!!
+          Handstand Contest!!!
           <ContentBadge type="video" label="VIDEO" />
         </h1>
       </EditableContent>

@@ -17,7 +17,7 @@ export function BoredomSection() {
     <div>
       <EditableContent>
         <h1>
-          1. 5 Epic Ways to Beat Summer Boredom
+          5 Epic Ways to Beat Summer Boredom
           <ContentBadge type="series" label="VIDEO SERIES" />
         </h1>
       </EditableContent>

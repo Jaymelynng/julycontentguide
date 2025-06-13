@@ -13,7 +13,7 @@ export function FireworksSection() {
     <div>
       <EditableContent>
         <h1>
-          2. 4th of July Fireworks
+          4th of July Fireworks
           <ContentBadge type="photo" label="PHOTO" />
         </h1>
       </EditableContent>

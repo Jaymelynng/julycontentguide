@@ -15,7 +15,7 @@ export function BalanceSection() {
     <div>
       <EditableContent>
         <h1>
-          8. Balance Reel
+          Balance Reel
           <ContentBadge type="series" label="VIDEO SERIES" />
         </h1>
       </EditableContent>

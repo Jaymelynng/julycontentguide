@@ -13,7 +13,7 @@ export function TrialSection() {
     <div>
       <EditableContent>
         <h1>
-          7. "Not sure what to expect? That's okay—we'll show you." 👀🤸
+          "Not sure what to expect? That's okay—we'll show you." 👀🤸
           <ContentBadge type="photo" label="PHOTO" />
         </h1>
       </EditableContent>

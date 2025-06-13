@@ -13,7 +13,7 @@ export function ConfidenceSection() {
     <div>
       <EditableContent>
         <h1>
-          4. The Secret to Confidence That Lasts Beyond Summer
+          The Secret to Confidence That Lasts Beyond Summer
           <ContentBadge type="video" label="VIDEO" />
         </h1>
       </EditableContent>

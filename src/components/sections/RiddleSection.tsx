@@ -16,7 +16,7 @@ export function RiddleSection() {
     <div>
       <EditableContent>
         <h1>
-          6. ✅ Riddle Week
+          ✅ Riddle Week
           <ContentBadge type="series" label="PHOTO SERIES" />
         </h1>
       </EditableContent>

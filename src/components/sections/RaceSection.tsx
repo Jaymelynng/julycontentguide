@@ -13,7 +13,7 @@ export function RaceSection() {
     <div>
       <EditableContent>
         <h1>
-          5. 🔥 "Can You Keep Up?" – Coach vs. Kid Race
+          🔥 "Can You Keep Up?" – Coach vs. Kid Race
           <ContentBadge type="video" label="VIDEO" />
         </h1>
       </EditableContent>
