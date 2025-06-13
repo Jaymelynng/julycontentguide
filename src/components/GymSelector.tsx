@@ -105,10 +105,17 @@ export function GymSelector({ postType = 'single' }: GymSelectorProps) {
     return 'pending';
   };
 
+  const handleOpenSharePoint = () => {
+    if (selectedGym) {
+      setCurrentStep(4);
+      window.open(selectedGym, '_blank');
+    }
+  };
+
   return (
     <div className="gym-selector-container">
       <div className="process-header">
-        <h3>🎯 3-Step Upload Process</h3>
+        <h3>🎯 4-Step Upload Process</h3>
         <p>Follow these steps to ensure your files are named correctly</p>
       </div>
 
@@ -127,6 +134,11 @@ export function GymSelector({ postType = 'single' }: GymSelectorProps) {
         <div className={`progress-step ${getStepStatus(3)}`}>
           <div className="step-circle">3</div>
           <span>Upload Files</span>
+        </div>
+        <div className="progress-line"></div>
+        <div className={`progress-step ${getStepStatus(4)}`}>
+          <div className="step-circle">4</div>
+          <span>Rename in SharePoint</span>
         </div>
       </div>
 
