@@ -264,16 +264,16 @@ export function SubmissionSection() {
 
       <div className="requirements">
         <EditableContent>
-          <h3>💡 Why We Ask You to Name Each Piece</h3>
+          <h3 style={{ color: 'var(--text-main)' }}>💡 Why We Ask You to Name Each Piece</h3>
         </EditableContent>
         <EditableContent>
-          <p>
+          <p style={{ color: 'var(--text-main)' }}>
             Some content has 1 item, others have 5+ items. By having you name each piece of content as you upload, 
             we ensure consistent file names across all your submissions.
           </p>
         </EditableContent>
         <EditableContent>
-          <p>
+          <p style={{ color: 'var(--text-main)' }}>
             <strong>Important:</strong> You'll need to manually rename your files in SharePoint using the names provided. 
             This helps us organize everything properly and makes it easy to find your content later.
           </p>
