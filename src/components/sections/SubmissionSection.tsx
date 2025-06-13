@@ -1,0 +1,285 @@
+import React, { useState } from 'react';
+import { EditableContent } from '../EditableContent';
+
+const gymOptions = [
+  {
+    name: 'Capital Gymnastics - Cedar Park',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/Capital%20Gymnastics%20-%20Cedar%20Park?csf=1&web=1&e=LSalqg'
+  },
+  {
+    name: 'Capital Gymnastics - Pflugerville',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/Capital%20Gymnastics%20-%20Pflugerville?csf=1&web=1&e=HZBfgS'
+  },
+  {
+    name: 'Capital Gymnastics - Round Rock',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/Capital%20Gymnastics%20-%20Round%20Rock?csf=1&web=1&e=6D54oe'
+  },
+  {
+    name: 'Estrella Gymnastics',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/Estrella%20Gymnastics?csf=1&web=1&e=VeQEiD'
+  },
+  {
+    name: 'Houston Gymnastics Academy',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/Houston%20Gymnastics%20Academy?csf=1&web=1&e=S7sVj3'
+  },
+  {
+    name: 'Oasis Gymnastics',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/Oasis%20Gymnastics?csf=1&web=1&e=CHTySq'
+  },
+  {
+    name: 'RB Atascocita',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/RB%20Atascocita?csf=1&web=1&e=IYHIRT'
+  },
+  {
+    name: 'RB Kingwood',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/RB%20Kingwood?csf=1&web=1&e=BZAnZe'
+  },
+  {
+    name: 'Scottsdale Gymnastics & Trampoline',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/Scottsdale%20Gymnastics%20%26%20Trampoline?csf=1&web=1&e=JQGBve'
+  },
+  {
+    name: 'TIGAR Gymnastics',
+    url: 'https://powersgym.sharepoint.com/:f:/r/sites/gym-operations/Shared%20Documents/Social%20Media/TIGAR%20Gymnastics?csf=1&web=1&e=Cea83Z'
+  }
+];
+
+export function SubmissionSection() {
+  const [selectedGym, setSelectedGym] = useState('');
+  const [description, setDescription] = useState('');
+  const [copied, setCopied] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+
+  const handleGymSelect = (value: string) => {
+    setSelectedGym(value);
+    if (value) {
+      setCurrentStep(2);
+    }
+  };
+
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDescription(e.target.value);
+    if (e.target.value.trim()) {
+      setCurrentStep(3);
+    }
+  };
+
+  const openSharePoint = () => {
+    if (selectedGym) {
+      window.open(selectedGym, '_blank');
+    }
+  };
+
+  const generateFilename = () => {
+    if (!description) return '[YourDescription]';
+    
+    const cleanDesc = description.replace(/[^a-zA-Z0-9]/g, '');
+    return cleanDesc;
+  };
+
+  const copyFilename = async () => {
+    const filename = generateFilename();
+    if (filename !== '[YourDescription]') {
+      await navigator.clipboard.writeText(filename);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const getStepStatus = (step: number) => {
+    if (currentStep > step) return 'completed';
+    if (currentStep === step) return 'active';
+    return 'pending';
+  };
+
+  return (
+    <div>
+      <EditableContent>
+        <h1>Submission Process</h1>
+      </EditableContent>
+
+      <EditableContent>
+        <div className="desc">
+          All content must be submitted by <span style={{color:'var(--accent-color)', fontWeight:'700'}}>June 30, 2025</span> for July posting.
+        </div>
+      </EditableContent>
+
+      <div className="gym-selector-container">
+        <div className="process-header">
+          <h3>🎯 3-Step Upload Process</h3>
+          <p>Follow these steps to ensure your files are named correctly and uploaded properly</p>
+        </div>
+
+        {/* Progress Indicator */}
+        <div className="progress-steps">
+          <div className={`progress-step ${getStepStatus(1)}`}>
+            <div className="step-circle">1</div>
+            <span>Select Gym</span>
+          </div>
+          <div className="progress-line"></div>
+          <div className={`progress-step ${getStepStatus(2)}`}>
+            <div className="step-circle">2</div>
+            <span>Name Content</span>
+          </div>
+          <div className="progress-line"></div>
+          <div className={`progress-step ${getStepStatus(3)}`}>
+            <div className="step-circle">3</div>
+            <span>Upload Files</span>
+          </div>
+        </div>
+
+        {/* Step 1: Gym Selection */}
+        <div className={`step-container ${currentStep >= 1 ? 'active' : ''}`}>
+          <div className="step-header">
+            <span className="step-number">1️⃣</span>
+            <h4>Select Your Gym</h4>
+          </div>
+          
+          <select
+            value={selectedGym}
+            onChange={(e) => handleGymSelect(e.target.value)}
+            className="gym-dropdown"
+          >
+            <option value="">Choose your gym location...</option>
+            {gymOptions.map((gym) => (
+              <option key={gym.url} value={gym.url}>
+                {gym.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Step 2: Content Naming */}
+        {selectedGym && (
+          <div className={`step-container ${currentStep >= 2 ? 'active' : ''}`}>
+            <div className="step-header">
+              <span className="step-number">2️⃣</span>
+              <h4>Name Your Content</h4>
+            </div>
+            
+            <div className="naming-instructions">
+              <p>📝 Enter a short, descriptive name (this step helps you think about what you're uploading!):</p>
+              <div className="example-box">
+                <strong>Examples:</strong> HandstandContest, BeatBoredom, ForwardRoll, ConfidencePhoto
+              </div>
+            </div>
+            
+            <input
+              type="text"
+              value={description}
+              onChange={handleDescriptionChange}
+              placeholder="e.g., HandstandContest"
+              maxLength={30}
+              className="description-input"
+            />
+            
+            {description && (
+              <div className="filename-preview">
+                <h5>📁 Your file name will be:</h5>
+                <div className="generated-filename">
+                  {generateFilename()}
+                </div>
+                <button
+                  onClick={copyFilename}
+                  className="copy-filename-btn"
+                >
+                  {copied ? '✅ Copied!' : '📋 Copy to Clipboard'}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Step 3: Upload Instructions */}
+        {description && (
+          <div className="step-container active">
+            <div className="step-header">
+              <span className="step-number">3️⃣</span>
+              <h4>Upload Your Files</h4>
+            </div>
+            
+            <div className="upload-instructions">
+              <div className="instruction-item">
+                <span className="instruction-icon">📱</span>
+                <span>Rename your files using the name above</span>
+              </div>
+              <div className="instruction-item">
+                <span className="instruction-icon">🚀</span>
+                <span>Click the button below to open SharePoint</span>
+              </div>
+              <div className="instruction-item">
+                <span className="instruction-icon">📤</span>
+                <span>Drag and drop your renamed files</span>
+              </div>
+            </div>
+            
+            <button
+              onClick={openSharePoint}
+              className="sharepoint-btn-large"
+            >
+              🚀 Open SharePoint Folder & Upload Files
+            </button>
+          </div>
+        )}
+
+        {/* Quick Access Section */}
+        {selectedGym && (
+          <div className="important-warning">
+            <span className="warning-icon">🚀</span>
+            <span className="warning-text">
+              <strong>Quick Access:</strong> Need to go straight to SharePoint? 
+              <button 
+                onClick={openSharePoint}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#721c24',
+                  textDecoration: 'underline',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  marginLeft: '5px'
+                }}
+              >
+                Click here
+              </button>
+            </span>
+          </div>
+        )}
+
+        {/* Important Reminders */}
+        <div className="important-reminders">
+          <div className="reminder-header">
+            <span className="warning-icon">⚠️</span>
+            <strong>Before You Upload - Double Check:</strong>
+          </div>
+          <div className="reminder-list">
+            <div className="reminder-item">✅ Files are renamed correctly using the format above</div>
+            <div className="reminder-item">✅ Content follows all guidelines and safety rules</div>
+            <div className="reminder-item">✅ Quality is high (clear, well-lit, steady)</div>
+            <div className="reminder-item">✅ All required items for each post type are included</div>
+            <div className="reminder-item">✅ Content is appropriate and authentic</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="requirements">
+        <EditableContent>
+          <h3>💡 Why the Typing Step Matters</h3>
+        </EditableContent>
+        <EditableContent>
+          <p>
+            The step where you type a description isn't just for file naming - it's a <strong>content quality checkpoint!</strong> 
+            When you have to describe what you're uploading, it makes you pause and think: 
+            "What am I actually submitting? Does this represent our gym well?"
+          </p>
+        </EditableContent>
+        <EditableContent>
+          <p>
+            This simple step helps ensure every piece of content is intentional, high-quality, and aligned with our brand. 
+            It's like a final "gut check" before you upload!
+          </p>
+        </EditableContent>
+      </div>
+    </div>
+  );
+}
