@@ -2007,6 +2007,86 @@ p {
   border: 2px solid var(--dropdown-bg);
 }
 
+.simple-admin-panel {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.admin-info-card {
+  background: linear-gradient(135deg, var(--white), var(--main-bg));
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 2px solid var(--sidebar-bg);
+  box-shadow: 0 6px 20px rgba(212, 165, 165, 0.15);
+}
+
+.admin-icon {
+  color: var(--sidebar-bg);
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+.admin-info-card h3 {
+  color: var(--sidebar-bg);
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.admin-info-card p {
+  color: var(--text-main);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.admin-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: var(--dropdown-bg);
+  border-radius: 0.8rem;
+  border-left: 4px solid var(--sidebar-bg);
+  font-weight: 500;
+}
+
+.feature-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.admin-note {
+  background: var(--main-bg);
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  border: 2px solid var(--dropdown-bg);
+  text-align: left;
+}
+
+.admin-note h4 {
+  color: var(--sidebar-bg);
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.admin-note ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.admin-note li {
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
 .settings-panel {
   text-align: center;
   padding: 2rem;

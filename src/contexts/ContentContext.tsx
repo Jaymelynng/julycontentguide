@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { supabase } from '../lib/supabase';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface ContentMonth {
   id: string;
@@ -41,13 +40,15 @@ interface ContentContextType {
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
 
 // Default July content structure
-const defaultJulyContent: Omit<ContentMonth, 'id' | 'created_at'> = {
+const defaultJulyContent: ContentMonth = {
+  id: 'july-2025',
   name: 'july',
   year: 2025,
   month: 7,
   title: 'July Content Mission',
   subtitle: 'Your Guide to Capturing Summer Magic',
   isActive: true,
+  created_at: new Date().toISOString(),
   sections: [
     {
       id: 'boredom',
@@ -150,237 +151,23 @@ const defaultJulyContent: Omit<ContentMonth, 'id' | 'created_at'> = {
 };
 
 export function ContentProvider({ children }: { children: ReactNode }) {
-  const [currentMonth, setCurrentMonth] = useState<ContentMonth | null>(null);
-  const [availableMonths, setAvailableMonths] = useState<ContentMonth[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentMonth] = useState<ContentMonth>(defaultJulyContent);
+  const [availableMonths] = useState<ContentMonth[]>([defaultJulyContent]);
+  const [isLoading] = useState(false);
 
-  useEffect(() => {
-    loadAvailableMonths();
-  }, []);
-
-  const loadAvailableMonths = async () => {
-    setIsLoading(true);
-    try {
-      const { data, error } = await supabase
-        .from('content_months')
-        .select('*')
-        .order('year', { ascending: false })
-        .order('month', { ascending: false });
-
-      if (error) {
-        console.error('Error loading months:', error);
-        // If no months exist, create July as default
-        await createDefaultJuly();
-        return;
-      }
-
-      if (!data || data.length === 0) {
-        // Create default July if no content exists
-        await createDefaultJuly();
-        return;
-      }
-
-      setAvailableMonths(data);
-      
-      // Set active month or most recent
-      const activeMonth = data.find(month => month.isActive) || data[0];
-      if (activeMonth) {
-        await loadMonthContent(activeMonth.id);
-      }
-    } catch (error) {
-      console.error('Error loading months:', error);
-      await createDefaultJuly();
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const createDefaultJuly = async () => {
-    try {
-      // Extract sections before inserting into content_months table
-      const { sections, ...monthDataWithoutSections } = defaultJulyContent;
-      
-      const { data: monthData, error: monthError } = await supabase
-        .from('content_months')
-        .insert({
-          ...monthDataWithoutSections,
-          id: `july-2025-${Date.now()}`
-        })
-        .select()
-        .single();
-
-      if (monthError) {
-        console.error('Error creating default July:', monthError);
-        return;
-      }
-
-      // Insert sections
-      for (const section of sections) {
-        const { items, ...sectionWithoutItems } = section;
-        const { data: sectionData, error: sectionError } = await supabase
-          .from('content_sections')
-          .insert({
-            ...sectionWithoutItems,
-            month_id: monthData.id,
-            id: `${monthData.id}-${section.id}`
-          })
-          .select()
-          .single();
-
-        if (sectionError) {
-          console.error('Error creating section:', sectionError);
-          continue;
-        }
-
-        // Insert items
-        for (const item of items) {
-          await supabase
-            .from('content_items')
-            .insert({
-              ...item,
-              section_id: sectionData.id,
-              id: `${sectionData.id}-${item.id}`
-            });
-        }
-      }
-
-      await loadAvailableMonths();
-    } catch (error) {
-      console.error('Error creating default content:', error);
-    }
-  };
-
-  const loadMonthContent = async (monthId: string) => {
-    try {
-      const { data: monthData, error: monthError } = await supabase
-        .from('content_months')
-        .select(`
-          *,
-          content_sections (
-            *,
-            content_items (*)
-          )
-        `)
-        .eq('id', monthId)
-        .single();
-
-      if (monthError) {
-        console.error('Error loading month content:', monthError);
-        return;
-      }
-
-      // Transform the data structure
-      const transformedMonth: ContentMonth = {
-        ...monthData,
-        sections: monthData.content_sections.map((section: any) => ({
-          ...section,
-          items: section.content_items
-        }))
-      };
-
-      setCurrentMonth(transformedMonth);
-    } catch (error) {
-      console.error('Error loading month content:', error);
-    }
-  };
-
-  const switchToMonth = async (monthId: string) => {
-    await loadMonthContent(monthId);
+  const switchToMonth = (monthId: string) => {
+    // For now, we only have July content
+    console.log('Switching to month:', monthId);
   };
 
   const createNewMonth = async (monthData: Partial<ContentMonth>) => {
-    try {
-      const newMonthId = `${monthData.name}-${monthData.year}-${Date.now()}`;
-      
-      // Extract sections before inserting into content_months table
-      const { sections, ...monthDataWithoutSections } = monthData;
-      
-      // Deactivate current active month
-      await supabase
-        .from('content_months')
-        .update({ isActive: false })
-        .eq('isActive', true);
-
-      // Create new month
-      const { data: newMonth, error: monthError } = await supabase
-        .from('content_months')
-        .insert({
-          id: newMonthId,
-          name: monthDataWithoutSections.name || 'new-month',
-          year: monthDataWithoutSections.year || new Date().getFullYear(),
-          month: monthDataWithoutSections.month || new Date().getMonth() + 1,
-          title: monthDataWithoutSections.title || 'New Content Mission',
-          subtitle: monthDataWithoutSections.subtitle || 'Your Guide to Creating Amazing Content',
-          isActive: true
-        })
-        .select()
-        .single();
-
-      if (monthError) {
-        console.error('Error creating new month:', monthError);
-        return;
-      }
-
-      // If sections are provided, create them
-      if (sections) {
-        for (const section of sections) {
-          const { items, ...sectionWithoutItems } = section;
-          const { data: sectionData, error: sectionError } = await supabase
-            .from('content_sections')
-            .insert({
-              ...sectionWithoutItems,
-              month_id: newMonth.id,
-              id: `${newMonth.id}-${section.id}`
-            })
-            .select()
-            .single();
-
-          if (sectionError) {
-            console.error('Error creating section:', sectionError);
-            continue;
-          }
-
-          // Create items
-          for (const item of items) {
-            await supabase
-              .from('content_items')
-              .insert({
-                ...item,
-                section_id: sectionData.id,
-                id: `${sectionData.id}-${item.id}`
-              });
-          }
-        }
-      }
-
-      await loadAvailableMonths();
-    } catch (error) {
-      console.error('Error creating new month:', error);
-    }
+    // For now, this is a no-op since we're keeping it simple
+    console.log('Creating new month:', monthData);
   };
 
   const updateCurrentMonth = async (updates: Partial<ContentMonth>) => {
-    if (!currentMonth) return;
-
-    // Extract sections before updating content_months table
-    const { sections, ...updatesWithoutSections } = updates;
-
-    try {
-      const { error } = await supabase
-        .from('content_months')
-        .update(updatesWithoutSections)
-        .eq('id', currentMonth.id);
-
-      if (error) {
-        console.error('Error updating month:', error);
-        return;
-      }
-
-      setCurrentMonth(prev => prev ? { ...prev, ...updates } : null);
-      await loadAvailableMonths();
-    } catch (error) {
-      console.error('Error updating month:', error);
-    }
+    // For now, this is a no-op since we're keeping it simple
+    console.log('Updating current month:', updates);
   };
 
   return (
