@@ -48,6 +48,5 @@ export function useProgress() {
   }
   return context;
 }
-</ProgressContext>
 
 export default ProgressContext;
