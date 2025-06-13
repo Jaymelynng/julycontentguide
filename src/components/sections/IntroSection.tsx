@@ -22,9 +22,6 @@ export function IntroSection() {
         <EditableContent>
           <h1 className="mission-title">July Content Mission</h1>
         </EditableContent>
-        <EditableContent>
-          <p className="mission-subtitle">Your Guide to Capturing Summer Magic</p>
-        </EditableContent>
       </div>
 
       {/* Mission Statement */}
