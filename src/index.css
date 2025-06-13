@@ -25,9 +25,7 @@ html, body {
 }
 
 body {
-  display: flex;
   min-height: 100vh;
-  flex-direction: row;
 }
 
 .sidebar {
@@ -44,6 +42,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 100;
 }
 
 .sidebar h2 {
@@ -91,22 +90,23 @@ body {
 .main {
   flex: 1;
   background: var(--main-bg);
-  padding: 2.5rem;
+  padding: 1.5rem;
   margin-left: 250px;
-  width: calc(100% - 250px);
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  width: calc(100vw - 250px);
 }
 
 .content-block {
   width: 100%;
-  max-width: 680px;
+  max-width: 900px;
   background: var(--white);
   border-radius: 1.3rem;
   box-shadow: 0 2px 14px 0 rgba(212,165,165,0.09);
-  padding: 2.2rem 2rem 1.5rem 2rem;
+  padding: 2rem 1.5rem;
   margin: 0 auto;
   color: var(--text-main);
   animation: fadeIn .33s;
@@ -120,10 +120,11 @@ body {
 h1 {
   font-family: 'Montserrat', Arial, sans-serif;
   color: var(--sidebar-bg);
-  font-size: 2.4rem;
+  font-size: 2rem;
   margin: 0 0 .7rem 0;
   text-align: center;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 h3 {
@@ -1203,32 +1204,225 @@ p {
   font-style: italic;
 }
 
+/* Desktop styles */
+@media (min-width: 1200px) {
+  .main {
+    padding: 2.5rem;
+  }
+  
+  .content-block {
+    max-width: 1000px;
+    padding: 2.5rem;
+  }
+  
+  h1 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .main {
+    padding: 2rem;
+  }
+  
+  .content-block {
+    max-width: 800px;
+    padding: 2rem;
+  }
+}
+
+/* Mobile styles */
 @media (max-width: 900px) {
-  body { flex-direction: column;}
-  .sidebar {width: 100%; flex-direction: row; padding: 0.7rem;}
-  .sidebar h2 {display:none;}
-  .nav-list {display: flex; flex-direction: row; width: 100%; overflow-x: auto;}
-  .nav-list li {margin:0 0.2rem; flex-shrink: 0;}
-  .nav-btn {padding: 0.7rem 1rem; font-size: 0.96em;}
-  .main {padding: 1.2rem;}
-  .content-block {padding: 1.2rem;}
-  .do-dont-grid {grid-template-columns: 1fr;}
-  .photo-grid {grid-template-columns: repeat(2, 1fr);}
-  .scene-grid {grid-template-columns: 1fr;}
-  .edit-mode-toggle {top: 10px; right: 10px; padding: 8px 15px; font-size: 0.9rem;}
-  .mission-hero h1 {font-size: 2rem;}
-  .mission-text {font-size: 1.1rem;}
-  .role-grid {grid-template-columns: 1fr;}
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    padding: 0.8rem;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(212,165,165,0.15);
+  }
+  
+  .sidebar h2 {
+    display: none;
+  }
+  
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    gap: 0.3rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-list li {
+    margin: 0;
+    flex-shrink: 0;
+  }
+  
+  .nav-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    border-radius: 0.8rem;
+  }
+  
+  .main {
+    margin-left: 0;
+    margin-top: 80px;
+    padding: 1rem;
+    width: 100vw;
+  }
+  
+  .content-block {
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+  }
+  
+  .do-dont-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .scene-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .edit-mode-toggle {
+    top: 90px;
+    right: 15px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .mission-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .mission-title {
+    font-size: 2rem;
+  }
+  
+  .mission-text {
+    font-size: 1rem;
+  }
+  
+  .role-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .progress-steps {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .progress-line {
+    width: 2px;
+    height: 30px;
+    margin: 0;
+  }
+  
+  .step-container {
+    margin: 1rem 0;
+  }
+  
+  .gym-dropdown {
+    max-width: 100%;
+  }
+  
+  .description-input {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
-  .main {padding: 0.2rem;}
-  .content-block {padding: .7rem .4rem;}
-  h1 {font-size: 1.8rem;}
-  .photo-grid {grid-template-columns: 1fr;}
-  .card-header {font-size: 1.1rem; padding: 1.5rem;}
-  .mission-hero {padding: 2rem 1.5rem;}
-  .mission-hero h1 {font-size: 1.8rem;}
-  .mission-text {font-size: 1rem;}
-  .role-grid {grid-template-columns: 1fr;}
+  .main {
+    padding: 0.8rem;
+    margin-top: 70px;
+  }
+  
+  .content-block {
+    padding: 1rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .card-header {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  .mission-hero {
+    padding: 1.5rem 1rem;
+  }
+  
+  .mission-title {
+    font-size: 1.8rem;
+  }
+  
+  .mission-text {
+    font-size: 0.95rem;
+  }
+  
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .role-item {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .nav-btn {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .sidebar {
+    padding: 0.6rem;
+  }
+  
+  .edit-mode-toggle {
+    top: 80px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .progress-steps {
+    padding: 0.8rem;
+  }
+  
+  .step-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .progress-step {
+    font-size: 0.8rem;
+  }
 }
