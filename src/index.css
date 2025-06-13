@@ -1036,7 +1036,7 @@ h4 {
   border-radius: 4px;
 }
 
-.edit-mode .editable {
+body.edit-mode .editable {
   border: 2px dashed var(--sidebar-bg);
   padding: 4px;
   background: rgba(212, 165, 165, 0.1);

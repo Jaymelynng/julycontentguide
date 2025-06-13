@@ -11,7 +11,15 @@ export function EditModeProvider({ children }: { children: ReactNode }) {
   const [isEditMode, setIsEditMode] = useState(false);
 
   const toggleEditMode = () => {
-    setIsEditMode(!isEditMode);
+    const newEditMode = !isEditMode;
+    setIsEditMode(newEditMode);
+    
+    // Add/remove edit-mode class to body
+    if (newEditMode) {
+      document.body.classList.add('edit-mode');
+    } else {
+      document.body.classList.remove('edit-mode');
+    }
   };
 
   return (
