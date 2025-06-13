@@ -203,7 +203,7 @@ export function GymSelector({ postType = 'single' }: GymSelectorProps) {
           <div className="upload-instructions">
             <div className="instruction-item">
               <span className="instruction-icon">📱</span>
-              <span>Rename your files using the names above</span>
+              <span><strong>IMPORTANT:</strong> You must manually rename your files using the names above</span>
             </div>
             <div className="instruction-item">
               <span className="instruction-icon">🚀</span>
@@ -211,7 +211,23 @@ export function GymSelector({ postType = 'single' }: GymSelectorProps) {
             </div>
             <div className="instruction-item">
               <span className="instruction-icon">📤</span>
-              <span>Drag and drop your renamed files</span>
+              <span>Drag and drop your manually renamed files</span>
+            </div>
+          </div>
+          
+          {/* Critical Reminder Box */}
+          <div className="critical-reminder">
+            <div className="critical-header">
+              <span className="critical-icon">⚠️</span>
+              <strong>CRITICAL: Manual File Renaming Required</strong>
+            </div>
+            <div className="critical-content">
+              <p>The system does NOT automatically rename your files. You must:</p>
+              <ol>
+                <li>Copy the filename above</li>
+                <li>Manually rename your file on your device</li>
+                <li>Then upload the renamed file to SharePoint</li>
+              </ol>
             </div>
           </div>
           

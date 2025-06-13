@@ -750,6 +750,54 @@ h4 {
   padding: 0.3rem 0;
 }
 
+/* Critical Reminder Styles */
+.critical-reminder {
+  margin: 1.5rem 0;
+  background: #fff3cd;
+  border: 3px solid #ffc107;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.critical-header {
+  background: #ffc107;
+  color: #212529;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.critical-icon {
+  font-size: 1.2rem;
+}
+
+.critical-content {
+  padding: 1.5rem;
+  color: #856404;
+}
+
+.critical-content p {
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  color: #856404 !important;
+}
+
+.critical-content ol {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #856404;
+}
+
+.critical-content li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #856404 !important;
+}
+
 .copy-filename {
   background: var(--sidebar-bg);
   color: var(--white);
