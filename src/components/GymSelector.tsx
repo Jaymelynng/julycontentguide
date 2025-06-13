@@ -215,7 +215,7 @@ export function GymSelector({ postType = 'single' }: GymSelectorProps) {
           <div className="upload-instructions">
             <div className="instruction-item">
               <span className="instruction-icon">📱</span>
-              <span><strong>IMPORTANT:</strong> You must manually rename your files using the names above</span>
+              <span>Upload your files to SharePoint (any name is fine for now)</span>
             </div>
             <div className="instruction-item">
               <span className="instruction-icon">🚀</span>
@@ -223,32 +223,58 @@ export function GymSelector({ postType = 'single' }: GymSelectorProps) {
             </div>
             <div className="instruction-item">
               <span className="instruction-icon">📤</span>
-              <span>Drag and drop your manually renamed files</span>
+              <span>Drag and drop your files</span>
             </div>
           </div>
           
-          {/* Critical Reminder Box */}
+          <button
+            onClick={handleOpenSharePoint}
+            className="sharepoint-btn-large"
+          >
+            🚀 Open SharePoint Folder & Upload Files
+          </button>
+        </div>
+      )}
+
+      {/* Step 4: Manual Renaming */}
+      {currentStep >= 4 && (
+        <div className="step-container active">
+          <div className="step-header">
+            <span className="step-number">4️⃣</span>
+            <h4>Rename Files in SharePoint</h4>
+          </div>
+          
           <div className="critical-reminder">
             <div className="critical-header">
               <span className="critical-icon">⚠️</span>
               <strong>CRITICAL: Manual File Renaming Required</strong>
             </div>
             <div className="critical-content">
-              <p>The system does NOT automatically rename your files. You must:</p>
+              <p>After uploading, you MUST rename each file in SharePoint:</p>
               <ol>
-                <li>Copy the filename above</li>
-                <li>Manually rename your file on your device</li>
-                <li>Then upload the renamed file to SharePoint</li>
+                <li>Right-click on each uploaded file</li>
+                <li>Select "Rename"</li>
+                <li>Paste the filename: <strong>{generateFilename()}</strong></li>
+                <li>Press Enter to save</li>
               </ol>
+              <p><strong>Why?</strong> This ensures consistent naming across all content submissions and helps us organize everything properly.</p>
             </div>
           </div>
           
-          <button
-            onClick={openSharePoint}
-            className="sharepoint-btn-large"
-          >
-            🚀 Open SharePoint Folder & Upload Files
-          </button>
+          <div className="upload-instructions">
+            <div className="instruction-item">
+              <span className="instruction-icon">📝</span>
+              <span>Right-click each file and select "Rename"</span>
+            </div>
+            <div className="instruction-item">
+              <span className="instruction-icon">📋</span>
+              <span>Paste the filename: <strong>{generateFilename()}</strong></span>
+            </div>
+            <div className="instruction-item">
+              <span className="instruction-icon">✅</span>
+              <span>Repeat for all uploaded files</span>
+            </div>
+          </div>
         </div>
       )}
 
