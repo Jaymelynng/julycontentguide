@@ -98,7 +98,7 @@ export function IntroSection() {
       <div className="guidelines-cards">
         <div className="interactive-card" onClick={() => toggleCard('guidelines')}>
           <div className="card-header">
-            <span>📋 Content Guidelines & Rules</span>
+            <span>📋 Content Guidelines</span>
             <div className={`expand-arrow ${expandedCard === 'guidelines' ? 'expanded' : ''}`}>⬇️</div>
           </div>
           <div className={`card-content ${expandedCard === 'guidelines' ? 'expanded' : ''}`}>
