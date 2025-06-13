@@ -19,7 +19,7 @@ export function FireworksSection() {
       </EditableContent>
 
       <EditableContent>
-        <div className="desc"><b>Photo Idea:</b> Capture kids throwing pit cubes in the air or celebrating in a large group.</div>
+        <div className="desc"><b>Description:</b> Capture kids throwing pit cubes in the air or celebrating in a large group.</div>
       </EditableContent>
 
       <UploadChecklist items={checklistItems} section="fireworks" />
