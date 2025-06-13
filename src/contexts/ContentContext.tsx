@@ -197,10 +197,13 @@ export function ContentProvider({ children }: { children: ReactNode }) {
 
   const createDefaultJuly = async () => {
     try {
+      // Extract sections before inserting into content_months table
+      const { sections, ...monthDataWithoutSections } = defaultJulyContent;
+      
       const { data: monthData, error: monthError } = await supabase
         .from('content_months')
         .insert({
-          ...defaultJulyContent,
+          ...monthDataWithoutSections,
           id: `july-2025-${Date.now()}`
         })
         .select()
@@ -212,7 +215,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       }
 
       // Insert sections
-      for (const section of defaultJulyContent.sections) {
+      for (const section of sections) {
         const { data: sectionData, error: sectionError } = await supabase
           .from('content_sections')
           .insert({
@@ -288,6 +291,9 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     try {
       const newMonthId = `${monthData.name}-${monthData.year}-${Date.now()}`;
       
+      // Extract sections before inserting into content_months table
+      const { sections, ...monthDataWithoutSections } = monthData;
+      
       // Deactivate current active month
       await supabase
         .from('content_months')
@@ -299,11 +305,11 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         .from('content_months')
         .insert({
           id: newMonthId,
-          name: monthData.name || 'new-month',
-          year: monthData.year || new Date().getFullYear(),
-          month: monthData.month || new Date().getMonth() + 1,
-          title: monthData.title || 'New Content Mission',
-          subtitle: monthData.subtitle || 'Your Guide to Creating Amazing Content',
+          name: monthDataWithoutSections.name || 'new-month',
+          year: monthDataWithoutSections.year || new Date().getFullYear(),
+          month: monthDataWithoutSections.month || new Date().getMonth() + 1,
+          title: monthDataWithoutSections.title || 'New Content Mission',
+          subtitle: monthDataWithoutSections.subtitle || 'Your Guide to Creating Amazing Content',
           isactive: true
         })
         .select()
@@ -315,8 +321,8 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       }
 
       // If sections are provided, create them
-      if (monthData.sections) {
-        for (const section of monthData.sections) {
+      if (sections) {
+        for (const section of sections) {
           const { data: sectionData, error: sectionError } = await supabase
             .from('content_sections')
             .insert({
@@ -354,10 +360,13 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   const updateCurrentMonth = async (updates: Partial<ContentMonth>) => {
     if (!currentMonth) return;
 
+    // Extract sections before updating content_months table
+    const { sections, ...updatesWithoutSections } = updates;
+
     try {
       const { error } = await supabase
         .from('content_months')
-        .update(updates)
+        .update(updatesWithoutSections)
         .eq('id', currentMonth.id);
 
       if (error) {
