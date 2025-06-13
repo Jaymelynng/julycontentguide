@@ -181,6 +181,46 @@ export function IntroSection() {
             </div>
           </div>
         </div>
+        
+        <div className="interactive-card" onClick={() => toggleCard('personality')}>
+          <div className="card-header">
+            <span>✨ Have Fun & Let Your Personality Shine</span>
+            <div className={`expand-arrow ${expandedCard === 'personality' ? 'expanded' : ''}`}>⬇️</div>
+          </div>
+          <div className={`card-content ${expandedCard === 'personality' ? 'expanded' : ''}`}>
+            <div className="golden-rule">
+              <EditableContent>
+                <h3>🌟 The Secret Ingredient</h3>
+              </EditableContent>
+              <EditableContent>
+                <p>Have fun and let your personality shine—people love real smiles and genuine moments! The best content comes from authentic joy and excitement. When you're having fun behind the camera, it shows in every shot.</p>
+              </EditableContent>
+            </div>
+            <div className="requirements">
+              <EditableContent>
+                <h3>💫 What Makes Content Magical:</h3>
+              </EditableContent>
+              <EditableContent>
+                <ul>
+                  <li>Your genuine enthusiasm and energy</li>
+                  <li>Natural interactions with kids and coaches</li>
+                  <li>Spontaneous moments of joy and celebration</li>
+                  <li>Your unique perspective and creativity</li>
+                  <li>Authentic reactions and emotions</li>
+                  <li>The fun you're having while creating</li>
+                </ul>
+              </EditableContent>
+            </div>
+            <div className="requirements">
+              <EditableContent>
+                <h3>🎉 Remember:</h3>
+              </EditableContent>
+              <EditableContent>
+                <p>You're not just documenting gymnastics—you're capturing the spirit, joy, and magic that makes your gym special. Trust your instincts, be yourself, and let your passion for what you do shine through every piece of content you create!</p>
+              </EditableContent>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
