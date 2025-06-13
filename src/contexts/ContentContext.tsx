@@ -8,7 +8,7 @@ interface ContentMonth {
   month: number;
   title: string;
   subtitle: string;
-  isActive: boolean;
+  isactive: boolean;
   created_at: string;
   sections: ContentSection[];
 }
@@ -47,7 +47,7 @@ const defaultJulyContent: Omit<ContentMonth, 'id' | 'created_at'> = {
   month: 7,
   title: 'July Content Mission',
   subtitle: 'Your Guide to Capturing Summer Magic',
-  isActive: true,
+  isactive: true,
   sections: [
     {
       id: 'boredom',
@@ -183,7 +183,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       setAvailableMonths(data);
       
       // Set active month or most recent
-      const activeMonth = data.find(month => month.isActive) || data[0];
+      const activeMonth = data.find(month => month.isactive) || data[0];
       if (activeMonth) {
         await loadMonthContent(activeMonth.id);
       }
@@ -291,8 +291,8 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       // Deactivate current active month
       await supabase
         .from('content_months')
-        .update({ isActive: false })
-        .eq('isActive', true);
+        .update({ isactive: false })
+        .eq('isactive', true);
 
       // Create new month
       const { data: newMonth, error: monthError } = await supabase
@@ -304,7 +304,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           month: monthData.month || new Date().getMonth() + 1,
           title: monthData.title || 'New Content Mission',
           subtitle: monthData.subtitle || 'Your Guide to Creating Amazing Content',
-          isActive: true
+          isactive: true
         })
         .select()
         .single();
