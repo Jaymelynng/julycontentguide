@@ -27,6 +27,10 @@ export function TrialSection() {
 
       <UploadChecklist items={checklistItems} section="trial" />
 
+      <div className="fun-divider">
+        <span className="fun-divider-icon">🚀</span>
+      </div>
+
       <GymSelector postType="single" />
     </div>
   );

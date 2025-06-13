@@ -35,10 +35,6 @@ export function UploadChecklist({ items }: UploadChecklistProps) {
           </div>
         ))}
       </div>
-      
-      <div className="task-reminder">
-        💡 <strong>Remember:</strong> Check off each task as you complete it on your own - this helps you stay organized!
-      </div>
     </div>
   );
 }

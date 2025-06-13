@@ -29,6 +29,10 @@ export function HandstandSection() {
 
       <UploadChecklist items={checklistItems} section="handstand" />
 
+      <div className="fun-divider">
+        <span className="fun-divider-icon">🚀</span>
+      </div>
+
       <div className="requirements">
         <EditableContent>
           <h3>📋 Requirements:</h3>

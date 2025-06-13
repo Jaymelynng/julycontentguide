@@ -22,6 +22,10 @@ export function BalanceSection() {
 
       <UploadChecklist items={checklistItems} section="balance" />
 
+      <div className="fun-divider">
+        <span className="fun-divider-icon">🚀</span>
+      </div>
+
       <div className="scene-grid">
         <div className="scene">
           <EditableContent>

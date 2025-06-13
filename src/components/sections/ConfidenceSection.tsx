@@ -26,6 +26,10 @@ export function ConfidenceSection() {
 
       <UploadChecklist items={checklistItems} section="confidence" />
 
+      <div className="fun-divider">
+        <span className="fun-divider-icon">🚀</span>
+      </div>
+
       <GymSelector postType="single" />
     </div>
   );

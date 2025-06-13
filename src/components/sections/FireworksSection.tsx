@@ -24,6 +24,10 @@ export function FireworksSection() {
 
       <UploadChecklist items={checklistItems} section="fireworks" />
 
+      <div className="fun-divider">
+        <span className="fun-divider-icon">🚀</span>
+      </div>
+
       <GymSelector postType="single" />
     </div>
   );

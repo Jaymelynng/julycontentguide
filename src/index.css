@@ -1284,6 +1284,34 @@ p {
   font-style: italic;
 }
 
+.fun-divider {
+  margin: 2rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.fun-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sidebar-bg), transparent);
+  z-index: 1;
+}
+
+.fun-divider-icon {
+  background: var(--white);
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 2;
+  border: 2px solid var(--sidebar-bg);
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(212, 165, 165, 0.2);
+}
+
 /* Gym Selection Styles */
 .gym-selection-container {
   min-height: 100vh;
