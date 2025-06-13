@@ -205,8 +205,14 @@ h4 {
 
 .desc {
   font-size: 1.01rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   color: var(--text-main);
+  background: var(--white);
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  border: 2px solid var(--dropdown-bg);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid var(--sidebar-bg);
 }
 
 .requirements, .protips {
