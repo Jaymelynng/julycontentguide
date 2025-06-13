@@ -1,4 +1,5 @@
 import React from 'react';
+import { EditModeToggle } from './EditModeToggle';
 import { IntroSection } from './sections/IntroSection';
 import { BoredomSection } from './sections/BoredomSection';
 import { FireworksSection } from './sections/FireworksSection';
@@ -50,7 +51,6 @@ export function MainContent({ activeSection }: MainContentProps) {
 
   return (
     <main className="main">
-      <EditModeToggle />
       <div className="content-block">
         {renderContent()}
       </div>

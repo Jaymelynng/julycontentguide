@@ -1,38 +1,27 @@
 import React, { useState } from 'react';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { ProgressProvider } from './contexts/ProgressContext';
 import { Sidebar } from './components/Sidebar';
 import { MainContent } from './components/MainContent';
-import { LoginForm } from './components/LoginForm';
 import { EditModeProvider } from './contexts/EditModeContext';
-
-function AppContent() {
-  const { isAuthenticated } = useAuth();
-  const [activeSection, setActiveSection] = useState('intro');
-
-  if (!isAuthenticated) {
-    return <LoginForm />;
-  }
-
-  return (
-    <ProgressProvider>
-      <EditModeProvider>
-        <div className="min-h-screen bg-gray-50 flex">
-          <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
-          <MainContent activeSection={activeSection} />
-        </div>
-      </EditModeProvider>
-    </ProgressProvider>
-  );
-}
+import { GymProvider } from './contexts/GymContext';
+import { ProgressProvider } from './contexts/ProgressContext';
+import { GymSelection } from './components/GymSelection';
 
 function App() {
+  const [activeSection, setActiveSection] = useState('intro');
+
   return (
-    <AuthProvider>
-      <div className="min-h-screen bg-gray-50 flex">
-        <AppContent />
-      </div>
-    </AuthProvider>
+    <GymProvider>
+      <ProgressProvider>
+        <EditModeProvider>
+          <GymSelection>
+            <div className="min-h-screen bg-gray-50 flex">
+              <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
+              <MainContent activeSection={activeSection} />
+            </div>
+          </GymSelection>
+        </EditModeProvider>
+      </ProgressProvider>
+    </GymProvider>
   );
 }
 

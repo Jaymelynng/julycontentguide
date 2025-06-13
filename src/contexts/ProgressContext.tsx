@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useAuth } from './AuthContext';
+import { useGym } from './GymContext';
 
 interface ProgressContextType {
   checkedItems: Record<string, Set<string>>;
@@ -11,13 +11,13 @@ interface ProgressContextType {
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
-  const { user } = useAuth();
+  const { selectedGym } = useGym();
   const [checkedItems, setCheckedItems] = useState<Record<string, Set<string>>>({});
 
-  // Load progress from localStorage when user changes
+  // Load progress from localStorage when gym changes
   useEffect(() => {
-    if (user) {
-      const savedProgress = localStorage.getItem(`gym-progress-${user.id}`);
+    if (selectedGym) {
+      const savedProgress = localStorage.getItem(`gym-progress-${selectedGym.id}`);
       if (savedProgress) {
         try {
           const parsed = JSON.parse(savedProgress);
@@ -38,20 +38,20 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     } else {
       setCheckedItems({});
     }
-  }, [user]);
+  }, [selectedGym]);
 
   // Save progress to localStorage whenever it changes
   useEffect(() => {
-    if (user && Object.keys(checkedItems).length > 0) {
+    if (selectedGym && Object.keys(checkedItems).length > 0) {
       const toSave: Record<string, string[]> = {};
       
       Object.keys(checkedItems).forEach(section => {
         toSave[section] = Array.from(checkedItems[section]);
       });
       
-      localStorage.setItem(`gym-progress-${user.id}`, JSON.stringify(toSave));
+      localStorage.setItem(`gym-progress-${selectedGym.id}`, JSON.stringify(toSave));
     }
-  }, [checkedItems, user]);
+  }, [checkedItems, selectedGym]);
 
   const toggleItem = (section: string, itemId: string) => {
     setCheckedItems(prev => {
@@ -78,8 +78,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   };
 
   const clearProgress = () => {
-    if (user) {
-      localStorage.removeItem(`gym-progress-${user.id}`);
+    if (selectedGym) {
+      localStorage.removeItem(`gym-progress-${selectedGym.id}`);
       setCheckedItems({});
     }
   };
