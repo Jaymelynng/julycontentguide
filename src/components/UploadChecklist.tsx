@@ -16,6 +16,11 @@ export function UploadChecklist({ items, section }: UploadChecklistProps) {
   const { toggleItem, getCheckedItems, isLoading } = useProgress();
   const checkedItems = getCheckedItems(section);
 
+  const handleToggle = (itemId: string) => {
+    console.log('Toggling item:', { section, itemId }); // Debug log
+    toggleItem(section, itemId);
+  };
+
   return (
     <div className="upload-checklist">
       <h4>📋 What to Upload:</h4>
@@ -31,14 +36,14 @@ export function UploadChecklist({ items, section }: UploadChecklistProps) {
           <div key={item.id} className="upload-item">
             <input
               type="checkbox"
-              id={item.id}
+              id={`${section}-${item.id}`}
               className="upload-checkbox"
               checked={checkedItems.has(item.id)}
-              onChange={() => toggleItem(section, item.id)}
+              onChange={() => handleToggle(item.id)}
               disabled={isLoading}
             />
             
-            <label htmlFor={item.id} className="upload-label">
+            <label htmlFor={`${section}-${item.id}`} className="upload-label">
               {item.label}
             </label>
             

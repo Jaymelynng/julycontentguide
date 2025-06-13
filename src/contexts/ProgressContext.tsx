@@ -102,10 +102,22 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   };
 
   const saveProgressToSupabase = async (section: string, itemId: string, completed: boolean) => {
-    if (!selectedGym) return;
+    if (!selectedGym || !section || !itemId) {
+      console.error('Missing required data for Supabase save:', { selectedGym, section, itemId });
+      return;
+    }
     
     try {
       const sessionId = getSessionId();
+      
+      console.log('Saving to Supabase:', {
+        gym_id: selectedGym.id,
+        gym_name: selectedGym.name,
+        section,
+        item_id: itemId,
+        completed,
+        user_session: sessionId
+      });
       
       if (completed) {
         // Insert or update the progress record
@@ -114,7 +126,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           .upsert({
             gym_id: selectedGym.id,
             gym_name: selectedGym.name,
-            section,
+            section: section,
             item_id: itemId,
             completed: true,
             completed_at: new Date().toISOString(),
@@ -125,6 +137,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
         if (error) {
           console.error('Error saving progress:', error);
+        } else {
+          console.log('Successfully saved progress to Supabase');
         }
       } else {
         // Delete the progress record
@@ -138,6 +152,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
         if (error) {
           console.error('Error removing progress:', error);
+        } else {
+          console.log('Successfully removed progress from Supabase');
         }
       }
     } catch (error) {
@@ -158,8 +174,15 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleItem = async (section: string, itemId: string) => {
+    if (!section || !itemId) {
+      console.error('Missing section or itemId:', { section, itemId });
+      return;
+    }
+
     const currentlyChecked = checkedItems[section]?.has(itemId) || false;
     const newCheckedState = !currentlyChecked;
+
+    console.log('Toggling item:', { section, itemId, currentlyChecked, newCheckedState });
 
     // Update local state immediately for responsive UI
     setCheckedItems(prev => {
