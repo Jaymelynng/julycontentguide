@@ -216,10 +216,11 @@ export function ContentProvider({ children }: { children: ReactNode }) {
 
       // Insert sections
       for (const section of sections) {
+        const { items, ...sectionWithoutItems } = section;
         const { data: sectionData, error: sectionError } = await supabase
           .from('content_sections')
           .insert({
-            ...section,
+            ...sectionWithoutItems,
             month_id: monthData.id,
             id: `${monthData.id}-${section.id}`
           })
@@ -232,7 +233,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         }
 
         // Insert items
-        for (const item of section.items) {
+        for (const item of items) {
           await supabase
             .from('content_items')
             .insert({
@@ -323,10 +324,11 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       // If sections are provided, create them
       if (sections) {
         for (const section of sections) {
+          const { items, ...sectionWithoutItems } = section;
           const { data: sectionData, error: sectionError } = await supabase
             .from('content_sections')
             .insert({
-              ...section,
+              ...sectionWithoutItems,
               month_id: newMonth.id,
               id: `${newMonth.id}-${section.id}`
             })
@@ -339,7 +341,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           }
 
           // Create items
-          for (const item of section.items) {
+          for (const item of items) {
             await supabase
               .from('content_items')
               .insert({
