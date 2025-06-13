@@ -92,6 +92,13 @@ export function SubmissionSection() {
     return 'pending';
   };
 
+  const handleOpenSharePoint = () => {
+    if (selectedGym) {
+      setCurrentStep(4);
+      window.open(selectedGym, '_blank');
+    }
+  };
+
   return (
     <div>
       <EditableContent>
@@ -106,7 +113,7 @@ export function SubmissionSection() {
 
       <div className="gym-selector-container">
         <div className="process-header">
-          <h3>🎯 3-Step Upload Process</h3>
+          <h3>🎯 4-Step Upload Process</h3>
           <p>Follow these steps to ensure your files are named correctly and uploaded properly</p>
         </div>
 
@@ -125,6 +132,11 @@ export function SubmissionSection() {
           <div className={`progress-step ${getStepStatus(3)}`}>
             <div className="step-circle">3</div>
             <span>Upload Files</span>
+          </div>
+          <div className="progress-line"></div>
+          <div className={`progress-step ${getStepStatus(4)}`}>
+            <div className="step-circle">4</div>
+            <span>Rename in SharePoint</span>
           </div>
         </div>
 
@@ -192,7 +204,7 @@ export function SubmissionSection() {
 
         {/* Step 3: Upload Instructions */}
         {description && (
-          <div className="step-container active">
+          <div className={`step-container ${currentStep >= 3 ? 'active' : ''}`}>
             <div className="step-header">
               <span className="step-number">3️⃣</span>
               <h4>Upload Your Files</h4>
@@ -201,7 +213,7 @@ export function SubmissionSection() {
             <div className="upload-instructions">
               <div className="instruction-item">
                 <span className="instruction-icon">📱</span>
-                <span>Rename your files using the name above</span>
+                <span>Upload your files to SharePoint (any name is fine for now)</span>
               </div>
               <div className="instruction-item">
                 <span className="instruction-icon">🚀</span>
@@ -209,16 +221,58 @@ export function SubmissionSection() {
               </div>
               <div className="instruction-item">
                 <span className="instruction-icon">📤</span>
-                <span>Drag and drop your renamed files</span>
+                <span>Drag and drop your files</span>
               </div>
             </div>
             
             <button
-              onClick={openSharePoint}
+              onClick={handleOpenSharePoint}
               className="sharepoint-btn-large"
             >
               🚀 Open SharePoint Folder & Upload Files
             </button>
+          </div>
+        )}
+
+        {/* Step 4: Manual Renaming */}
+        {currentStep >= 4 && (
+          <div className="step-container active">
+            <div className="step-header">
+              <span className="step-number">4️⃣</span>
+              <h4>Rename Files in SharePoint</h4>
+            </div>
+            
+            <div className="critical-reminder">
+              <div className="critical-header">
+                <span className="critical-icon">⚠️</span>
+                <strong>CRITICAL: Manual File Renaming Required</strong>
+              </div>
+              <div className="critical-content">
+                <p>After uploading, you MUST rename each file in SharePoint:</p>
+                <ol>
+                  <li>Right-click on each uploaded file</li>
+                  <li>Select "Rename"</li>
+                  <li>Paste the filename: <strong>{generateFilename()}</strong></li>
+                  <li>Press Enter to save</li>
+                </ol>
+                <p><strong>Why?</strong> This ensures consistent naming across all content submissions and helps us organize everything properly.</p>
+              </div>
+            </div>
+            
+            <div className="upload-instructions">
+              <div className="instruction-item">
+                <span className="instruction-icon">📝</span>
+                <span>Right-click each file and select "Rename"</span>
+              </div>
+              <div className="instruction-item">
+                <span className="instruction-icon">📋</span>
+                <span>Paste the filename: <strong>{generateFilename()}</strong></span>
+              </div>
+              <div className="instruction-item">
+                <span className="instruction-icon">✅</span>
+                <span>Repeat for all uploaded files</span>
+              </div>
+            </div>
           </div>
         )}
 
