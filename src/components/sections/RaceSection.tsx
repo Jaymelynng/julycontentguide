@@ -25,12 +25,6 @@ export function RaceSection() {
         </div>
       </EditableContent>
 
-      <UploadChecklist items={checklistItems} section="race" />
-
-      <div className="fun-divider">
-        <span className="fun-divider-icon">🚀</span>
-      </div>
-
       <div className="requirements">
         <EditableContent>
           <h3>💡 TIPS:</h3>
@@ -53,6 +47,13 @@ export function RaceSection() {
           </ul>
         </EditableContent>
       </div>
+
+      <UploadChecklist items={checklistItems} section="race" />
+
+      <div className="fun-divider">
+        <span className="fun-divider-icon">🚀</span>
+      </div>
+
       <GymSelector postType="single" />
     </div>
   );

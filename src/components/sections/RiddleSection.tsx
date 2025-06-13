@@ -41,6 +41,15 @@ export function RiddleSection() {
         </EditableContent>
       </div>
 
+      <div className="requirements">
+        <EditableContent>
+          <h3>💡 TIPS:</h3>
+        </EditableContent>
+        <EditableContent>
+          <p>Clear, bright photos with no blur. If you can get a coach helping, that's extra awesome!</p>
+        </EditableContent>
+      </div>
+
       <UploadChecklist items={checklistItems} section="riddle" />
 
       <div className="fun-divider">
@@ -68,15 +77,6 @@ export function RiddleSection() {
             <h4>Over You Go: TADAA Photo 4</h4>
           </EditableContent>
         </div>
-      </div>
-
-      <div className="requirements">
-        <EditableContent>
-          <h3>💡 TIPS:</h3>
-        </EditableContent>
-        <EditableContent>
-          <p>Clear, bright photos with no blur. If you can get a coach helping, that's extra awesome!</p>
-        </EditableContent>
       </div>
 
       <GymSelector postType="multiple-photos" />
