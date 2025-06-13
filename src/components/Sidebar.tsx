@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload, Edit3, BarChart3 } from 'lucide-react';
+import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload, Edit3 } from 'lucide-react';
 import { useEditMode } from '../contexts/EditModeContext';
 
 interface SidebarProps {
@@ -20,7 +20,6 @@ const navigationItems = [
   { id: 'guidelines', label: 'Guidelines', icon: FileText },
   { id: 'technical', label: 'Technical', icon: Settings },
   { id: 'submission', label: 'Submission', icon: Upload },
-  { id: 'admin', label: 'Admin Dashboard', icon: BarChart3 },
 ];
 
 export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
