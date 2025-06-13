@@ -78,6 +78,12 @@ export function IntroSection() {
               <span className="role-text">Communicate questions — we're here to help!</span>
             </div>
           </EditableContent>
+          <EditableContent>
+            <div className="role-item">
+              <div className="role-icon">🌟</div>
+              <span className="role-text">Have fun and let your personality shine—people love real smiles and genuine moments!</span>
+            </div>
+          </EditableContent>
         </div>
       </div>
 
