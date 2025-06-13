@@ -6,7 +6,7 @@ import { GymSelector } from '../GymSelector';
 
 export function ConfidenceSection() {
   const checklistItems = [
-    { id: 'confidence1', label: 'One amazing photo showing joy, pride, excitement, or happiness', type: 'photo' as const },
+    { id: 'confidence1', label: 'One amazing 15-20 second video showing joy, pride, excitement, or happiness', type: 'video' as const },
   ];
 
   return (
@@ -14,13 +14,13 @@ export function ConfidenceSection() {
       <EditableContent>
         <h1>
           4. The Secret to Confidence That Lasts Beyond Summer
-          <ContentBadge type="photo" label="PHOTO" />
+          <ContentBadge type="video" label="VIDEO" />
         </h1>
       </EditableContent>
 
       <EditableContent>
         <div className="desc">
-          Select one amazing photo that makes you smile—no limits! Capture joy, pride, excitement, or pure happiness.
+          Create one amazing 15-20 second video that makes you smile—no limits! Capture joy, pride, excitement, or pure happiness in motion.
         </div>
       </EditableContent>
 

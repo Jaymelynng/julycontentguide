@@ -6,11 +6,11 @@ import { GymSelector } from '../GymSelector';
 
 export function BoredomSection() {
   const checklistItems = [
-    { id: 'boredom1', label: 'A group of kids bursts with excitement and high energy.', type: 'Video' as const },
-    { id: 'boredom2', label: 'Learning a New Skill', type: 'photo' as const },
-    { id: 'boredom3', label: 'Friends Having Fun', type: 'photo' as const },
-    { id: 'boredom4', label: 'Dancing or Silly Moments', type: 'photo' as const },
-    { id: 'boredom5', label: 'Exhausted & Happy Kids', type: 'photo' as const },
+    { id: 'boredom1', label: 'Video 1: A group of kids bursts with excitement and high energy (15-20 sec)', type: 'video' as const },
+    { id: 'boredom2', label: 'Video 2: Learning a New Skill - super stoked (15-20 sec)', type: 'video' as const },
+    { id: 'boredom3', label: 'Video 3: Friends Having Fun (15-20 sec)', type: 'video' as const },
+    { id: 'boredom4', label: 'Video 4: Dancing or Silly Moments (15-20 sec)', type: 'video' as const },
+    { id: 'boredom5', label: 'Video 5: Exhausted & Happy Kids (15-20 sec)', type: 'video' as const },
   ];
 
   return (
@@ -18,21 +18,21 @@ export function BoredomSection() {
       <EditableContent>
         <h1>
           1. 5 Epic Ways to Beat Summer Boredom
-          <ContentBadge type="Video" label="Video " />
+          <ContentBadge type="series" label="VIDEO SERIES" />
         </h1>
       </EditableContent>
 
       <EditableContent>
-        <div className="desc">Create a carousel with five photos showcasing different summer activities.</div>
+        <div className="desc">Create five 15-20 second video clips showcasing different summer activities that beat boredom.</div>
       </EditableContent>
 
       <UploadChecklist items={checklistItems} />
 
       <div className="multiple-files-note">
-        💡 Since you're uploading 5 photos, name them: BeatBoredom_1, BeatBoredom_2, BeatBoredom_3, BeatBoredom_4, BeatBoredom_5
+        💡 Since you're uploading 5 videos, name them: BeatBoredom_1, BeatBoredom_2, BeatBoredom_3, BeatBoredom_4, BeatBoredom_5
       </div>
 
-      <GymSelector postType="multiple-photos" />
+      <GymSelector postType="multiple-videos" />
     </div>
   );
 }
