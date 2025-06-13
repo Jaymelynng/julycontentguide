@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckSquare, Square } from 'lucide-react';
+import { useProgress } from '../contexts/ProgressContext';
 
 interface ChecklistItem {
   id: string;
@@ -9,20 +9,12 @@ interface ChecklistItem {
 
 interface UploadChecklistProps {
   items: ChecklistItem[];
+  section: string;
 }
 
-export function UploadChecklist({ items }: UploadChecklistProps) {
-  const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
-
-  const toggleItem = (id: string) => {
-    const newChecked = new Set(checkedItems);
-    if (newChecked.has(id)) {
-      newChecked.delete(id);
-    } else {
-      newChecked.add(id);
-    }
-    setCheckedItems(newChecked);
-  };
+export function UploadChecklist({ items, section }: UploadChecklistProps) {
+  const { toggleItem, getCheckedItems } = useProgress();
+  const checkedItems = getCheckedItems(section);
 
   return (
     <div className="upload-checklist">
@@ -36,7 +28,7 @@ export function UploadChecklist({ items }: UploadChecklistProps) {
               id={item.id}
               className="upload-checkbox"
               checked={checkedItems.has(item.id)}
-              onChange={() => toggleItem(item.id)}
+              onChange={() => toggleItem(section, item.id)}
             />
             
             <label htmlFor={item.id} className="upload-label">

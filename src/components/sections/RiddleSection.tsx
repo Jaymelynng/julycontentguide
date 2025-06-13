@@ -42,6 +42,7 @@ export function RiddleSection() {
       </div>
 
       <UploadChecklist items={checklistItems} />
+      <UploadChecklist items={checklistItems} section="riddle" />
 
       <div className="photo-grid">
         <div className="photo-step">

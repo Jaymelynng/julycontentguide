@@ -1,5 +1,7 @@
 import React from 'react';
-import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload } from 'lucide-react';
+import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload, LogOut, Edit3 } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { useEditMode } from '../contexts/EditModeContext';
 
 interface SidebarProps {
   activeSection: string;
@@ -22,9 +24,17 @@ const navigationItems = [
 ];
 
 export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
+  const { user, logout, isAdmin } = useAuth();
+  const { isEditMode, toggleEditMode } = useEditMode();
+
   return (
     <aside className="sidebar">
-      <h2>July Content</h2>
+      <div className="sidebar-header">
+        <h2>July Content</h2>
+        <div className="user-info">
+          <span className="gym-name">{user?.gymName}</span>
+        </div>
+      </div>
       
       <ul className="nav-list">
         {navigationItems.map((item) => (
@@ -38,6 +48,26 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
           </li>
         ))}
       </ul>
+      
+      <div className="sidebar-footer">
+        {isAdmin && (
+          <button
+            onClick={toggleEditMode}
+            className={`admin-btn edit-btn ${isEditMode ? 'active' : ''}`}
+          >
+            <Edit3 size={16} />
+            {isEditMode ? 'Exit Edit' : 'Edit Mode'}
+          </button>
+        )}
+        
+        <button
+          onClick={logout}
+          className="admin-btn logout-btn"
+        >
+          <LogOut size={16} />
+          Logout
+        </button>
+      </div>
     </aside>
   );
 }

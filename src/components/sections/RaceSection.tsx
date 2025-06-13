@@ -26,6 +26,7 @@ export function RaceSection() {
       </EditableContent>
 
       <UploadChecklist items={checklistItems} />
+      <UploadChecklist items={checklistItems} section="race" />
 
       <div className="requirements">
         <EditableContent>

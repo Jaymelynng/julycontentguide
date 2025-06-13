@@ -23,6 +23,7 @@ export function FireworksSection() {
       </EditableContent>
 
       <UploadChecklist items={checklistItems} />
+      <UploadChecklist items={checklistItems} section="fireworks" />
 
       <GymSelector postType="single" />
     </div>
