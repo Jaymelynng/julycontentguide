@@ -6,7 +6,7 @@ import { GymSelector } from '../GymSelector';
 
 export function ConfidenceSection() {
   const checklistItems = [
-    { id: 'confidence1', label: 'One amazing 15-20 second video showing joy, pride, excitement, or happiness', type: 'video' as const },
+    { id: 'confidence1', label: 'A single, standout photo that radiates pride and confidence', type: 'photo' as const },
   ];
 
   return (
@@ -14,13 +14,13 @@ export function ConfidenceSection() {
       <EditableContent>
         <h1>
           The Secret to Confidence That Lasts Beyond Summer
-          <ContentBadge type="video" label="VIDEO" />
+          <ContentBadge type="photo" label="PHOTO" />
         </h1>
       </EditableContent>
 
       <EditableContent>
         <div className="desc">
-          Create one amazing 15-20 second video that makes you smile—no limits! Capture joy, pride, excitement, or pure happiness in motion.
+          Select one amazing photo that showcases achievement and confidence—whether it's climbing to the top of the rope, mastering a new skill, or crossing the ninja course for the first time. The photo should display pride and accomplishment.
         </div>
       </EditableContent>
 
@@ -32,10 +32,10 @@ export function ConfidenceSection() {
         </EditableContent>
         <EditableContent>
           <ul>
-            <li>Focus on authentic emotions and genuine moments</li>
-            <li>Capture the "I did it!" feeling</li>
+            <li>Focus on clear, bright imagery with a compelling subject</li>
+            <li>Capture authentic emotions and genuine moments of achievement</li>
+            <li>Show the "I did it!" feeling and pride in accomplishment</li>
             <li>Good lighting to show facial expressions clearly</li>
-            <li>Let the joy and pride shine through naturally</li>
           </ul>
         </EditableContent>
       </div>
