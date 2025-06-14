@@ -35,7 +35,7 @@ export function ConfidenceSection() {
             <li>Focus on clear, bright imagery with a compelling subject</li>
             <li>Capture authentic emotions and genuine moments of achievement</li>
             <li>Show the "I did it!" feeling and pride in accomplishment</li>
-            <li>Good lighting to show facial expressions clearly</li>
+            <li>Focus on clear, bright visuals that convey emotion and allow viewers to feel the moment through the image</li>
           </ul>
         </EditableContent>
       </div>
