@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload, Edit3 } from 'lucide-react';
 import { useEditMode } from '../contexts/EditModeContext';
 
@@ -29,6 +29,11 @@ const navigationItems = [
 
 export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
   const { isEditMode, toggleEditMode } = useEditMode();
+  const [isMobileVisible, setIsMobileVisible] = useState(false);
+
+  const toggleMobileNav = () => {
+    setIsMobileVisible(!isMobileVisible);
+  };
 
   const renderSection = (category: string, title: string, items: typeof navigationItems) => (
     <div className="nav-section">
@@ -49,7 +54,16 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
   );
 
   return (
-    <aside className="sidebar">
+    <>
+      <button 
+        className="mobile-nav-toggle"
+        onClick={toggleMobileNav}
+        aria-label="Toggle navigation"
+      >
+        ☰
+      </button>
+      
+      <aside className={`sidebar ${isMobileVisible ? 'mobile-visible' : 'mobile-hidden'}`}>
       <div className="sidebar-header">
         <h2>July Content</h2>
       </div>
@@ -70,5 +84,6 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
         </button>
       </div>
     </aside>
+    </>
   );
 }
