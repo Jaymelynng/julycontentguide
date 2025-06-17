@@ -68,6 +68,74 @@ export function IntroSection() {
         <p>👆 <strong>Use the sidebar navigation</strong> to explore each content assignment 👆</p>
       </div>
       
+      {/* News & Updates Section */}
+      <div className="news-updates-section">
+        <div className="news-header">
+          <div className="news-icon">📢</div>
+          <h2 className="news-title">News & Updates</h2>
+          <div className="news-subtitle">Stay informed with the latest tips and announcements</div>
+        </div>
+        
+        <div className="news-grid">
+          <div className="news-item featured">
+            <div className="news-badge">📌 PINNED</div>
+            <div className="news-date">June 15, 2025</div>
+            <h3 className="news-item-title">Welcome to Your July Content Mission!</h3>
+            <p className="news-content">
+              We're excited to launch this new content guide system! Everything you need to create amazing July content is right here. 
+              Check out the sidebar navigation to explore each assignment.
+            </p>
+            <div className="news-tags">
+              <span className="news-tag">Getting Started</span>
+              <span className="news-tag">Important</span>
+            </div>
+          </div>
+          
+          <div className="news-item">
+            <div className="news-date">June 12, 2025</div>
+            <h3 className="news-item-title">💡 Pro Tip: File Naming Made Easy</h3>
+            <p className="news-content">
+              Remember to use the file naming helper in each section! It automatically generates the correct format 
+              and you can copy it to your clipboard for easy pasting in SharePoint.
+            </p>
+            <div className="news-tags">
+              <span className="news-tag">Tips</span>
+              <span className="news-tag">Workflow</span>
+            </div>
+          </div>
+          
+          <div className="news-item">
+            <div className="news-date">June 10, 2025</div>
+            <h3 className="news-item-title">🎬 Video Quality Reminder</h3>
+            <p className="news-content">
+              For the best results, make sure your videos are well-lit and steady. Natural lighting works great, 
+              and don't forget to capture those authentic moments of joy and achievement!
+            </p>
+            <div className="news-tags">
+              <span className="news-tag">Quality</span>
+              <span className="news-tag">Video Tips</span>
+            </div>
+          </div>
+          
+          <div className="news-item">
+            <div className="news-date">June 8, 2025</div>
+            <h3 className="news-item-title">📅 Important Deadline Reminder</h3>
+            <p className="news-content">
+              All content must be submitted by <strong>June 30, 2025</strong> for July posting. 
+              Start early and reach out if you have any questions!
+            </p>
+            <div className="news-tags">
+              <span className="news-tag">Deadline</span>
+              <span className="news-tag">Important</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="news-footer">
+          <p>💬 Have questions or suggestions? Reach out to the content team anytime!</p>
+        </div>
+      </div>
+      
       {/* Expandable Guidelines Cards */}
       <div className="guidelines-cards">
         <div className="interactive-card" onClick={() => toggleCard('guidelines')}>
