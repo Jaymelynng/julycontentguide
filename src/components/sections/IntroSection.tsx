@@ -7,8 +7,37 @@ export function IntroSection() {
     setExpandedCard(expandedCard === cardId ? null : cardId);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div className="mission-page">
+      {/* Quick Navigation */}
+      <div className="quick-navigation">
+        <h3>Quick Access</h3>
+        <div className="quick-nav-buttons">
+          <button 
+            onClick={() => scrollToSection('guidelines-section')}
+            className="quick-nav-btn"
+          >
+            📋 Content Guidelines
+          </button>
+          <button 
+            onClick={() => scrollToSection('technical-section')}
+            className="quick-nav-btn"
+          >
+            ⚙️ Technical Standards & Quality
+          </button>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <div className="mission-hero">
         <div className="floating-icons">
@@ -87,12 +116,19 @@ export function IntroSection() {
       
       {/* Expandable Guidelines Cards */}
       <div className="guidelines-cards">
-        <div className="interactive-card" onClick={() => toggleCard('guidelines')}>
+        <div id="guidelines-section" className="interactive-card" onClick={() => toggleCard('guidelines')}>
           <div className="card-header">
             <span>📋 Content Guidelines</span>
             <div className={`expand-arrow ${expandedCard === 'guidelines' ? 'expanded' : ''}`}>⬇️</div>
           </div>
           <div className={`card-content ${expandedCard === 'guidelines' ? 'expanded' : ''}`}>
+            {expandedCard === 'guidelines' && (
+              <div className="back-to-top-container">
+                <button onClick={scrollToTop} className="back-to-top-btn">
+                  ⬆️ Back to Top
+                </button>
+              </div>
+            )}
             <div className="do-dont-grid">
               <div className="do-section">
                 <h4>Do This - What Makes Great Content</h4>
@@ -130,12 +166,19 @@ export function IntroSection() {
           </div>
         </div>
         
-        <div className="interactive-card" onClick={() => toggleCard('technical')}>
+        <div id="technical-section" className="interactive-card" onClick={() => toggleCard('technical')}>
           <div className="card-header">
             <span>⚙️ Technical Standards & Quality</span>
             <div className={`expand-arrow ${expandedCard === 'technical' ? 'expanded' : ''}`}>⬇️</div>
           </div>
           <div className={`card-content ${expandedCard === 'technical' ? 'expanded' : ''}`}>
+            {expandedCard === 'technical' && (
+              <div className="back-to-top-container">
+                <button onClick={scrollToTop} className="back-to-top-btn">
+                  ⬆️ Back to Top
+                </button>
+              </div>
+            )}
             <div className="requirements">
               <h3>📱 Video & Photo Specs</h3>
               <ul>
