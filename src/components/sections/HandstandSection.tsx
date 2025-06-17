@@ -4,6 +4,10 @@ import { ContentBadge } from '../ContentBadge';
 import { GymSelector } from '../GymSelector';
 
 export function HandstandSection() {
+  const checklistItems = [
+    { id: 'handstand1', label: 'One completed handstand contest video, 20–30 seconds long', type: 'video' as const },
+  ];
+
   return (
     <div>
       <EditableContent>
@@ -15,66 +19,11 @@ export function HandstandSection() {
 
       <EditableContent>
         <div className="desc">
-          Organize a handstand contest for groups of kids, coaches, or both.
-          Can be walking or no walking!
-          Get creative with locations: beam, vault table, or any part of the gym. Any team gym cast handstand holds would be fun! 
-          Start filming with "Ready, Set, Go!" and keep recording until the last participant comes down.
+          Organize a classic handstand contest. Can be walking or no walking! Include kids of any and all levels in your gym—the more mix, the better! Kids, coaches, or both. Get creative with locations: beam handstands, vault table, or any part of the gym. Any team gym cast handstand holds would be fun! Catch the fun energy and team spirit.
         </div>
       </EditableContent>
 
-      <div className="upload-checklist">
-        <h4>📋 What to Upload:</h4>
-        
-        <div className="task-list">
-          <div className="task-item">
-            <div className="task-number">1</div>
-            <div className="task-content">
-              <EditableContent>
-                <span className="task-label">
-                  Hands Up High: Photo 1 feet together arms by ears Big reach for the sky!
-                </span>
-              </EditableContent>
-              <span className="task-type photo-type">PHOTO</span>
-            </div>
-          </div>
-          
-          <div className="task-item">
-            <div className="task-number">2</div>
-            <div className="task-content">
-              <EditableContent>
-                <span className="task-label">
-                  Hands Down Low: Photo 2 Squat low. Chin tucked. Hands on the floor like a tight ball.
-                </span>
-              </EditableContent>
-              <span className="task-type photo-type">PHOTO</span>
-            </div>
-          </div>
-          
-          <div className="task-item">
-            <div className="task-number">3</div>
-            <div className="task-content">
-              <EditableContent>
-                <span className="task-label">
-                  Look at Your Belly: Photo Mid-forward roll –
-                </span>
-              </EditableContent>
-              <span className="task-type photo-type">PHOTO</span>
-            </div>
-          </div>
-          
-          <div className="task-item">
-            <div className="task-number">4</div>
-            <div className="task-content">
-              <EditableContent>
-                <span className="task-label">
-                  Over You Go: TADAA Photo 4 TADAA! What a superstar!
-                </span>
-              </EditableContent>
-              <span className="task-type photo-type">PHOTO</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <UploadChecklist items={checklistItems} section="handstand" />
 
       <div className="requirements">
         <EditableContent>
@@ -84,8 +33,8 @@ export function HandstandSection() {
           <ul>
             <li>Clean background, good lighting</li>
             <li>Steady surface</li>
-            <li>Film multiple attempts to capture the best footage</li>
-            <li>Capture authentic excitement and fun moments</li>
+            <li>It's encouraged to include multiple clips, angles, or views—just make sure they are put together before uploading so it plays as one smooth video</li>
+            <li>Consider including variations across different days, age groups, or programs to showcase growth and progress</li>
           </ul>
         </EditableContent>
       </div>
