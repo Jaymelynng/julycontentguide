@@ -81,7 +81,7 @@ export function IntroSection() {
         </div>
         
         <div className="news-footer">
-          <p>💬 Have questions or suggestions? Reach out to the content team anytime!</p>
+          <p>💬 Have questions or suggestions? Reach out anytime!</p>
         </div>
       </div>
       
