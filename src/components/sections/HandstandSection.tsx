@@ -2,6 +2,7 @@ import React from 'react';
 import { EditableContent } from '../EditableContent';
 import { ContentBadge } from '../ContentBadge';
 import { GymSelector } from '../GymSelector';
+import { UploadChecklist } from '../UploadChecklist';
 
 export function HandstandSection() {
   const checklistItems = [
