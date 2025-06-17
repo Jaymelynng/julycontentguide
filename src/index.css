@@ -181,28 +181,31 @@ body {
 
 h1 {
   font-family: 'Montserrat', Arial, sans-serif;
-  color: var(--sidebar-bg);
+  color: #8B4A4A;
   font-size: 2rem;
   margin: 0 0 .7rem 0;
   text-align: center;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
   font-family: 'Montserrat', Arial, sans-serif;
-  color: var(--sidebar-bg);
+  color: #8B4A4A;
   font-size: 1.13rem;
   margin-bottom: 0.4rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 h4 {
   font-family: 'Montserrat', Arial, sans-serif;
-  color: var(--sidebar-bg);
+  color: #8B4A4A;
   font-size: 1rem;
   margin-bottom: 0.4rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .desc {
@@ -273,10 +276,11 @@ h4 {
 }
 
 .upload-checklist h4 {
-  color: var(--sidebar-bg);
+  color: #8B4A4A;
   margin: 0 0 0.8rem 0;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .task-list {
@@ -717,9 +721,11 @@ h4 {
 }
 
 .step-header h4 {
-  color: var(--sidebar-bg);
+  color: #8B4A4A;
   margin: 0;
   font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .naming-instructions {
@@ -749,9 +755,11 @@ h4 {
 }
 
 .filename-preview h5 {
+  color: #8B4A4A;
   margin: 0 0 0.8rem 0;
-  color: var(--sidebar-bg);
   font-size: 1rem;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .upload-instructions {
@@ -1084,10 +1092,11 @@ h4 {
 }
 
 .content-section h3 {
-  color: var(--sidebar-bg) !important;
+  color: #8B4A4A !important;
   margin: 1.5rem 0 0.8rem 0;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .content-section h3:first-child {
@@ -1127,10 +1136,11 @@ h4 {
 }
 
 .upload-item h4 {
-  color: var(--sidebar-bg) !important;
+  color: #8B4A4A !important;
   margin: 0 0 0.8rem 0;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .upload-item ul {
@@ -1178,10 +1188,11 @@ h4 {
 }
 
 .video-content h4 {
-  color: var(--sidebar-bg) !important;
+  color: #8B4A4A !important;
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .video-badge {
@@ -1201,10 +1212,11 @@ h4 {
 }
 
 .scene-description h5 {
-  color: var(--text-main) !important;
+  color: #8B4A4A !important;
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .scene-description p {
@@ -1222,10 +1234,11 @@ h4 {
 }
 
 .tips-section h3 {
-  color: var(--text-main) !important;
+  color: #8B4A4A !important;
   margin: 0 0 1rem 0;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .tips-section ul {
