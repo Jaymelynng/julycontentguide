@@ -92,11 +92,36 @@ export function IntroSection() {
         </div>
       </div>
 
-      {/* Navigation Hint */}
       <div className="navigation-hint">
-        <p>👆 <strong>Use the sidebar navigation</strong> to explore each content assignment 👆</p>
+        <h3>🧭 How to Navigate This Guide</h3>
+        <div className="navigation-instructions">
+          <div className="nav-instruction">
+            <span className="nav-icon">👈</span>
+            <div className="nav-text">
+              <strong>Use the sidebar navigation</strong> on the left to explore each content assignment
+            </div>
+          </div>
+          <div className="nav-instruction">
+            <span className="nav-icon">📋</span>
+            <div className="nav-text">
+              Click on any content section (Beat Boredom, Handstand Contest, etc.) to see detailed requirements
+            </div>
+          </div>
+          <div className="nav-instruction">
+            <span className="nav-icon">📤</span>
+            <div className="nav-text">
+              Each section includes upload checklists and direct SharePoint links for easy submission
+            </div>
+          </div>
+          <div className="nav-instruction">
+            <span className="nav-icon">📖</span>
+            <div className="nav-text">
+              Visit the "Guidelines" and "Technical" sections for detailed quality standards and best practices
+            </div>
+          </div>
+        </div>
       </div>
-      
+
       {/* News & Updates Section */}
       <div className="news-updates-section">
         <div className="news-header">
