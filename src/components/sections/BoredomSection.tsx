@@ -1,5 +1,4 @@
 import React from 'react';
-import { EditableContent } from '../EditableContent';
 import { ContentBadge } from '../ContentBadge';
 import { UploadChecklist } from '../UploadChecklist';
 import { GymSelector } from '../GymSelector';
@@ -15,31 +14,23 @@ export function BoredomSection() {
 
   return (
     <div>
-      <EditableContent>
-        <h1>
-          5 Epic Ways to Beat Summer Boredom
-          <ContentBadge type="series" label="VIDEO SERIES" />
-        </h1>
-      </EditableContent>
+      <h1>
+        5 Epic Ways to Beat Summer Boredom
+        <ContentBadge type="series" label="VIDEO SERIES" />
+      </h1>
 
-      <EditableContent>
-        <div className="desc">Create five 15-20 second video clips showcasing different summer activities that beat boredom.</div>
-      </EditableContent>
+      <div className="desc">Create five 15-20 second video clips showcasing different summer activities that beat boredom.</div>
 
       <UploadChecklist items={checklistItems} section="boredom" />
 
       <div className="requirements">
-        <EditableContent>
-          <h3>💡 TIPS:</h3>
-        </EditableContent>
-        <EditableContent>
-          <ul>
-            <li>Capture authentic excitement and high energy</li>
-            <li>Film multiple short clips to get the best moments</li>
-            <li>Focus on genuine reactions and emotions</li>
-            <li>Make sure audio captures the fun and energy</li>
-          </ul>
-        </EditableContent>
+        <h3>💡 TIPS:</h3>
+        <ul>
+          <li>Capture authentic excitement and high energy</li>
+          <li>Film multiple short clips to get the best moments</li>
+          <li>Focus on genuine reactions and emotions</li>
+          <li>Make sure audio captures the fun and energy</li>
+        </ul>
       </div>
 
       <div className="fun-divider">
