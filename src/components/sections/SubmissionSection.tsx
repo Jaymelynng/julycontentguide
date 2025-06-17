@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { EditableContent } from '../EditableContent';
 
 const gymOptions = [
   {
@@ -101,15 +100,11 @@ export function SubmissionSection() {
 
   return (
     <div>
-      <EditableContent>
-        <h1>Submission Process</h1>
-      </EditableContent>
+      <h1>Submission Process</h1>
 
-      <EditableContent>
-        <div className="desc">
-          All content must be submitted by <span style={{color:'var(--accent-color)', fontWeight:'700'}}>June 30, 2025</span> for July posting.
-        </div>
-      </EditableContent>
+      <div className="desc">
+        All content must be submitted by <span style={{color:'var(--accent-color)', fontWeight:'700'}}>June 30, 2025</span> for July posting.
+      </div>
 
       <div className="gym-selector-container">
         <div className="process-header">
@@ -317,21 +312,15 @@ export function SubmissionSection() {
       </div>
 
       <div className="requirements">
-        <EditableContent>
-          <h3 style={{ color: 'var(--text-main)' }}>💡 Why We Ask You to Name Each Piece</h3>
-        </EditableContent>
-        <EditableContent>
-          <p style={{ color: 'var(--text-main)' }}>
-            Some content has 1 item, others have 5+ items. By having you name each piece of content as you upload, 
-            we ensure consistent file names across all your submissions.
-          </p>
-        </EditableContent>
-        <EditableContent>
-          <p style={{ color: 'var(--text-main)' }}>
-            <strong>Important:</strong> You'll need to manually rename your files in SharePoint using the names provided. 
-            This helps us organize everything properly and makes it easy to find your content later.
-          </p>
-        </EditableContent>
+        <h3 style={{ color: 'var(--text-main)' }}>💡 Why We Ask You to Name Each Piece</h3>
+        <p style={{ color: 'var(--text-main)' }}>
+          Some content has 1 item, others have 5+ items. By having you name each piece of content as you upload, 
+          we ensure consistent file names across all your submissions.
+        </p>
+        <p style={{ color: 'var(--text-main)' }}>
+          <strong>Important:</strong> You'll need to manually rename your files in SharePoint using the names provided. 
+          This helps us organize everything properly and makes it easy to find your content later.
+        </p>
       </div>
     </div>
   );
