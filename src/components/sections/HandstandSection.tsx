@@ -1,5 +1,4 @@
 import React from 'react';
-import { EditableContent } from '../EditableContent';
 import { ContentBadge } from '../ContentBadge';
 import { GymSelector } from '../GymSelector';
 import { UploadChecklist } from '../UploadChecklist';
@@ -11,33 +10,25 @@ export function HandstandSection() {
 
   return (
     <div>
-      <EditableContent>
-        <h1>
-          Handstand Contest!!!
-          <ContentBadge type="video" label="VIDEO" />
-        </h1>
-      </EditableContent>
+      <h1>
+        Handstand Contest!!!
+        <ContentBadge type="series" label="VIDEO SERIES" />
+      </h1>
 
-      <EditableContent>
-        <div className="desc">
-          Organize a classic handstand contest. Can be walking or no walking! Include kids of any and all levels in your gym—the more mix, the better! Kids, coaches, or both. Get creative with locations: beam handstands, vault table, or any part of the gym. Any team gym cast handstand holds would be fun! Catch the fun energy and team spirit.
-        </div>
-      </EditableContent>
+      <div className="desc">
+        Organize a classic handstand contest. Can be walking or no walking! Include kids of any and all levels in your gym—the more mix, the better! Kids, coaches, or both. Get creative with locations: beam handstands, vault table, or any part of the gym. Any team gym cast handstand holds would be fun! Catch the fun energy and team spirit.
+      </div>
 
       <UploadChecklist items={checklistItems} section="handstand" />
 
       <div className="requirements">
-        <EditableContent>
-          <h3>💡 TIPS:</h3>
-        </EditableContent>
-        <EditableContent>
-          <ul>
-            <li>Clean background, good lighting</li>
-            <li>Steady surface</li>
-            <li>It's encouraged to include multiple clips, angles, or views—just make sure they are put together before uploading so it plays as one smooth video</li>
-            <li>Consider including variations across different days, age groups, or programs to showcase growth and progress</li>
-          </ul>
-        </EditableContent>
+        <h3>💡 TIPS:</h3>
+        <ul>
+          <li>Clean background, good lighting</li>
+          <li>Steady surface</li>
+          <li>It's encouraged to include multiple clips, angles, or views—just make sure they are put together before uploading so it plays as one smooth video</li>
+          <li>Consider including variations across different days, age groups, or programs to showcase growth and progress</li>
+        </ul>
       </div>
 
       <div className="fun-divider">
