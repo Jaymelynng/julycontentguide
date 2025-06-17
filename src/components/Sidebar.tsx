@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload, Edit3 } from 'lucide-react';
-import { useEditMode } from '../contexts/EditModeContext';
+import { Home, Camera, Video, Award, Users, Brain, FileText, Settings, Upload } from 'lucide-react';
 
 interface SidebarProps {
   activeSection: string;
@@ -28,7 +27,6 @@ const navigationItems = [
 ];
 
 export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
-  const { isEditMode, toggleEditMode } = useEditMode();
   const [isMobileVisible, setIsMobileVisible] = useState(false);
 
   const toggleMobileNav = () => {
@@ -73,16 +71,6 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
         {renderSection('content', 'Content', navigationItems)}
         {renderSection('guides', 'Guides', navigationItems)}
       </ul>
-      
-      <div className="sidebar-footer">
-        <button
-          onClick={toggleEditMode}
-          className={`admin-btn edit-btn ${isEditMode ? 'active' : ''}`}
-        >
-          <Edit3 size={16} />
-          {isEditMode ? 'Exit Edit' : 'Edit Mode'}
-        </button>
-      </div>
     </aside>
     </>
   );

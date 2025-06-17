@@ -1,5 +1,4 @@
 import React from 'react';
-import { EditModeToggle } from './EditModeToggle';
 import { IntroSection } from './sections/IntroSection';
 import { BoredomSection } from './sections/BoredomSection';
 import { FireworksSection } from './sections/FireworksSection';
