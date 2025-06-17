@@ -5,7 +5,7 @@ import { GymSelector } from '../GymSelector';
 
 export function FireworksSection() {
   const checklistItems = [
-    { id: 'fireworks1', label: 'Kids throwing pit cubes in the air OR celebrating in large group', type: 'photo' as const },
+    { id: 'fireworks1', label: 'One photo of kids celebrating', type: 'photo' as const },
   ];
 
   return (
@@ -15,19 +15,22 @@ export function FireworksSection() {
         <ContentBadge type="photo" label="PHOTO" />
       </h1>
 
-      <div className="desc"><b>Description:</b> Capture kids throwing pit cubes in the air or celebrating in a large group.</div>
+      <div className="content-section">
+        <h3>🎯 Post Visual:</h3>
+        <p>A joyful, festive celebration moment that feels like a summer "fireworks" finale.</p>
 
-      <UploadChecklist items={checklistItems} section="fireworks" />
+        <h3>📌 Content Notes:</h3>
+        <p>Capture one clear, bright image of excitement at its peak—this will be used as a highlight image.</p>
 
-      <div className="requirements">
-        <h3>💡 TIPS:</h3>
+        <h3>📷 What to Upload:</h3>
+        <p>One photo of kids either:</p>
         <ul>
-          <li>Capture the moment of celebration at its peak</li>
-          <li>Make sure all kids are visible and engaged</li>
-          <li>Good lighting and clear background</li>
-          <li>High energy and festive atmosphere</li>
+          <li>Throwing pit cubes in the air</li>
+          <li>Or celebrating in a large, excited group</li>
         </ul>
       </div>
+
+      <UploadChecklist items={checklistItems} section="fireworks" />
 
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>

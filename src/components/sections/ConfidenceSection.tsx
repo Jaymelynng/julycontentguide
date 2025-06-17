@@ -5,7 +5,7 @@ import { GymSelector } from '../GymSelector';
 
 export function ConfidenceSection() {
   const checklistItems = [
-    { id: 'confidence1', label: 'A single, standout photo that radiates pride and confidence', type: 'photo' as const },
+    { id: 'confidence1', label: 'One incredible photo of a child achieving something big', type: 'photo' as const },
   ];
 
   return (
@@ -15,21 +15,18 @@ export function ConfidenceSection() {
         <ContentBadge type="photo" label="PHOTO" />
       </h1>
 
-      <div className="desc">
-        Select one amazing photo that showcases achievement and confidence—whether it's climbing to the top of the rope, mastering a new skill, or crossing the ninja course for the first time. The photo should display pride and accomplishment.
+      <div className="content-section">
+        <h3>🎯 Post Visual:</h3>
+        <p>A moment of pride and accomplishment—capturing a big win or personal victory.</p>
+
+        <h3>📌 Content Notes:</h3>
+        <p>Choose one powerful, clear image that radiates confidence. Highlight the child's face and emotion in action.</p>
+
+        <h3>📷 What to Upload:</h3>
+        <p>One incredible photo of a child achieving something big (rope climb, ninja course, new skill, etc.)</p>
       </div>
 
       <UploadChecklist items={checklistItems} section="confidence" />
-
-      <div className="requirements">
-        <h3>💡 TIPS:</h3>
-        <ul>
-          <li>Focus on clear, bright imagery with a compelling subject</li>
-          <li>Capture authentic emotions and genuine moments of achievement</li>
-          <li>Show the "I did it!" feeling and pride in accomplishment</li>
-          <li>Focus on clear, bright visuals that convey emotion - Like you can feel the moment through the image</li>
-        </ul>
-      </div>
 
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>

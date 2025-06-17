@@ -5,38 +5,41 @@ import { GymSelector } from '../GymSelector';
 
 export function TrialSection() {
   const checklistItems = [
-    { id: 'trial1', label: '1 super amazing photo: active class in motion with coach engagement & high fives', type: 'photo' as const },
+    { id: 'trial1', label: 'A kid actively participating', type: 'photo' as const },
+    { id: 'trial2', label: 'A coach giving high-fives or encouragement', type: 'photo' as const },
+    { id: 'trial3', label: 'A class in motion', type: 'photo' as const },
   ];
 
   return (
     <div>
       <h1>
-        "Not sure what to expect? That's okay—we'll show you." 👀🤸
-        <ContentBadge type="photo" label="PHOTO" />
+        "Not Sure What to Expect?" – We'll Show You - FREE TRIAL
+        <ContentBadge type="series" label="PHOTO SERIES" />
       </h1>
 
-      <div className="desc">
-        1 super amazing photo - Book a free trial class and see the magic for yourself—smiles, high-fives, and all.
-        Action shot of an active class in motion: kid active, coach engaged, high fives, think motion!
+      <div className="content-section">
+        <h3>🎯 Post Visual:</h3>
+        <p>A high-energy class in action—coaches engaged, kids smiling, and real learning in motion.</p>
+
+        <h3>📌 Content Notes:</h3>
+        <p>Focus on a well-timed shot with interaction (e.g. high-fives or coaching moments). Show action, not posing.</p>
+
+        <h3>📷 What to Upload:</h3>
+        <p>3 standout photo showing:</p>
+        <ul>
+          <li>A kid actively participating</li>
+          <li>A coach giving high-fives or encouragement</li>
+          <li>A class in motion</li>
+        </ul>
       </div>
 
       <UploadChecklist items={checklistItems} section="trial" />
-
-      <div className="requirements">
-        <h3>💡 TIPS:</h3>
-        <ul>
-          <li>Capture motion and active engagement</li>
-          <li>Show coach-student interaction and high fives</li>
-          <li>Focus on the energy and excitement of learning</li>
-          <li>Make sure the photo shows the class atmosphere</li>
-        </ul>
-      </div>
 
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
       </div>
 
-      <GymSelector postType="single" />
+      <GymSelector postType="multiple-photos" />
     </div>
   );
 }
