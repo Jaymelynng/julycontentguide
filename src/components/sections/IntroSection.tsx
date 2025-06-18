@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { generatePDF } from '../../utils/pdfGenerator';
 
 export function IntroSection() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -18,6 +17,17 @@ export function IntroSection() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const handleDownloadPDF = () => {
+    // Import the PDF generator dynamically to avoid build issues
+    import('../../utils/pdfGenerator').then(({ generatePDF }) => {
+      generatePDF();
+    }).catch((error) => {
+      console.error('Error loading PDF generator:', error);
+      alert('Error loading PDF generator. Please try again.');
+    });
+  };
+
   return (
     <div className="mission-page">
       {/* Quick Navigation */}
@@ -25,7 +35,7 @@ export function IntroSection() {
         <h3>Quick Access</h3>
         <div className="quick-nav-buttons">
           <button 
-            onClick={generatePDF}
+            onClick={handleDownloadPDF}
             className="quick-nav-btn"
           >
             📄 Download July Content PDF
