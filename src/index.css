@@ -881,4 +881,9 @@ h4 {
 
 .important-reminders {
   margin-top: 2rem;
-  padding:
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+  border: 2px solid rgba(220,53,69,0.6);
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+}
