@@ -23,11 +23,10 @@ export function FireworksSection() {
         <p>Focus on capturing one clear, bright image that highlights excitement at its peak. Ensure the photo is well-lit and crisp no blur.</p>
 
         <h3>📷 UPLOAD THIS 1 PHOTO:</h3>
-        <div className="upload-details">
-          <div className="upload-item">
-            <h4>📸 One group action shot</h4>
-            <p>Example: Throwing pit cubs.jumping into pit</p>
-          </div>
+      
+        <div className="upload-item">
+          <h4>📸 One group action shot</h4>
+          <p>Example: Throwing pit cubes, jumping into pit</p>
         </div>
       </div>
 
