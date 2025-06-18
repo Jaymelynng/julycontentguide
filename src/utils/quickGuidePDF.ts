@@ -43,152 +43,93 @@ export const generateQuickGuidePDF = async () => {
   pdf.setTextColor('#FFFFFF');
   pdf.setFontSize(20);
   pdf.setFont('helvetica', 'bold');
-  pdf.text('📋 July Content Quick Guide', pageWidth / 2, 25, { align: 'center' });
-  
-  pdf.setFontSize(10);
-  pdf.setFont('helvetica', 'normal');
-  pdf.text('Essential checklist for content creators', pageWidth / 2, 35, { align: 'center' });
+  pdf.text('July Content - Quick Guide', pageWidth / 2, 25, { align: 'center' });
   
   yPosition = 55;
   
-  // Quick Overview
-  addText('🎯 MISSION', 14, true, '#8B4A4A');
-  addText('Capture real moments that make your gym special—kids learning, trying new things, and having a blast. Show the smiles, teamwork, and "I did it!" moments that inspire families.', 10);
-  
-  addText('⏰ DEADLINE: June 30, 2025', 11, true, '#dc3545');
+  // Content Tasks Header
+  addText('Content Tasks', 16, true, '#8B4A4A');
   addSectionBreak();
   
-  // Content Checklist
-  addText('📝 CONTENT CHECKLIST', 14, true, '#8B4A4A');
+  // Task List
+  addText('5 Epic Ways to Beat Summer Boredom - REEL | 5 VIDEOS', 10);
+  addText('4th of July Fireworks - PHOTO | 1 PHOTO', 10);
+  addText('Handstand Contest!!! - REEL | 1 VIDEO', 10);
+  addText('The Secret to Confidence That Lasts Beyond Summer - PHOTO | 1 PHOTO', 10);
+  addText('"Can You Keep Up?" – Coach vs. Kid Race - REEL | 1 VIDEO', 10);
+  addText('Riddle Week – Forward Roll Series - PHOTOS | 4 PHOTOS', 10);
+  addText('"Not Sure What to Expect?" – We\'ll Show You- FREE TRIAL - PHOTOS | 3 PHOTOS', 10);
+  addText('Balance Reel - REEL | 3 VIDEOS', 10);
+  
+  addSectionBreak();
   addSectionBreak();
   
   // Task 1
-  addText('1. Beat Summer Boredom (5 Videos)', 12, true);
-  addText('📹 5 videos, 15-20 seconds each', 10, true);
-  addText('✓ High-energy group activity', 9);
-  addText('✓ Learning & progress moment', 9);
-  addText('✓ Friendship & connection', 9);
-  addText('✓ Gym personality & playfulness', 9);
-  addText('✓ Happy & worn out kids', 9);
+  addText('1. 5 Epic Ways to Beat Summer Boredom', 12, true, '#8B4A4A');
+  addText('REEL | 5 VIDEOS | 15-20 seconds each', 10, true);
+  addText('Video 1: Group/Team Activity – High-Energy and Physical', 10, true);
+  addText('Video 2: Learning & Progress', 10, true);
+  addText('Video 3: Friendship & Connection', 10, true);
+  addText('Video 4: Gym Personality & Playfulness', 10, true);
+  addText('Video 5: Happy & Worn Out', 10, true);
   addSectionBreak();
   
   // Task 2
-  addText('2. 4th of July Fireworks (1 Photo)', 12, true);
-  addText('📸 1 group action shot', 10, true);
-  addText('✓ Kids mid-action (jumping, cheering)', 9);
-  addText('✓ Peak excitement moment', 9);
+  addText('2. 4th of July Fireworks', 12, true, '#8B4A4A');
+  addText('PHOTO | 1 PHOTO', 10, true);
+  addText('One group action shot', 10, true);
+  addText('Kids caught mid-action, like jumping or cheering, at the peak moment-think fireworks.', 10);
+  addText('Example: Throwing pit cubs.jumping into pit', 10);
   addSectionBreak();
   
   // Task 3
-  addText('3. Handstand Contest (1 Video)', 12, true);
-  addText('📹 20-30 second video', 10, true);
-  addText('✓ Classic handstand contest', 9);
-  addText('✓ Kids and/or coaches participating', 9);
-  addText('✓ Fun energy and team spirit', 9);
+  addText('3. Handstand Contest!!!', 12, true, '#8B4A4A');
+  addText('REEL | 1 VIDEO | 20-30 seconds', 10, true);
+  addText('One 20–30 second continuous video capturing the full contest', 10, true);
+  addText('Include kids of any and all levels. Get creative with locations: beam handstands, vault table, or any part of the gym.', 10);
   addSectionBreak();
   
   // Task 4
-  addText('4. Confidence Photo (1 Photo)', 12, true);
-  addText('📸 1 achievement photo', 10, true);
-  addText('✓ Pure "I-did-it!" face', 9);
-  addText('✓ Child achieving something big', 9);
+  addText('4. The Secret to Confidence That Lasts Beyond Summer', 12, true, '#8B4A4A');
+  addText('PHOTO | 1 PHOTO', 10, true);
+  addText('One incredible photo of a child achieving something big', 10, true);
+  addText('Core Visual: A pure "I-did-it!" face! It should be that photo that instantly makes you smile.', 10);
   addSectionBreak();
   
   // Task 5
-  addText('5. Coach vs Kid Race (1 Video)', 12, true);
-  addText('📹 1 race video', 10, true);
-  addText('✓ Start with "Ready, Set, Go!"', 9);
-  addText('✓ End with reactions', 9);
-  addText('✓ Coaches participating with kids', 9);
+  addText('5. "Can You Keep Up?" – Coach vs. Kid Race', 12, true, '#8B4A4A');
+  addText('REEL | 1 VIDEO', 10, true);
+  addText('One full video: Start with "Ready, Set, Go!" → End after reactions', 10, true);
+  addText('Coaches participating in obstacle course/race activities with kids—showing coaches actually doing camp games and challenges alongside campers.', 10);
   addSectionBreak();
   
   // Task 6
-  addText('6. Forward Roll Series (4 Photos)', 12, true);
-  addText('📸 4 progression photos', 10, true);
-  addText('✓ Hands up high', 9);
-  addText('✓ Hands down low', 9);
-  addText('✓ Look at your belly', 9);
-  addText('✓ Over you go - TADAA!', 9);
+  addText('6. Riddle Week – Forward Roll Series', 12, true, '#8B4A4A');
+  addText('PHOTOS | 4 PHOTOS', 10, true);
+  addText('Use one child to show all 4 steps clearly. You should clearly see each phase of the roll - full shot - clear no blur concept.', 10);
+  addText('Photo 1: Hands Up High', 10, true);
+  addText('Photo 2: Hands Down Low', 10, true);
+  addText('Photo 3: Look at Your Belly', 10, true);
+  addText('Photo 4: Over You Go – TADAA!', 10, true);
   addSectionBreak();
   
   // Task 7
-  addText('7. Free Trial Class (3 Photos)', 12, true);
-  addText('📸 3 class action photos', 10, true);
-  addText('✓ Group action shot', 9);
-  addText('✓ Coach connecting with kids', 9);
-  addText('✓ Gym personality highlight', 9);
+  addText('7. "Not Sure What to Expect?" – We\'ll Show You- FREE TRIAL', 12, true, '#8B4A4A');
+  addText('PHOTOS | 3 PHOTOS', 10, true);
+  addText('Photo 1: A group action shot of a class in action—kids playing together, smiling, and having a blast.', 10, true);
+  addText('Photo 2: A coach connecting with kids in class—think high-fives, spotting a skill, or a teaching moment.', 10, true);
+  addText('Photo 3: Anything that makes you smile and highlights your gym\'s personality—use equipment, displays, or decorations that show off what makes your gym unique.', 10, true);
   addSectionBreak();
   
   // Task 8
-  addText('8. Balance Reel (3 Videos)', 12, true);
-  addText('📹 3 beam videos with zoom effects', 10, true);
-  addText('✓ Walking on beam (zoom on feet)', 9);
-  addText('✓ Skill execution (zoom on movement)', 9);
-  addText('✓ Dismount (zoom on landing)', 9);
-  addSectionBreak();
-  
-  // New page for guidelines
-  pdf.addPage();
-  yPosition = margin;
-  
-  // Quick Guidelines
-  addText('✅ QUICK GUIDELINES', 14, true, '#8B4A4A');
-  addSectionBreak();
-  
-  addText('DO:', 12, true, '#28a745');
-  addText('• Authentic smiles & breakthrough moments', 9);
-  addText('• Proper technique & safe execution', 9);
-  addText('• Clean, organized environment', 9);
-  addText('• Natural interactions & teamwork', 9);
-  addText('• High-quality, well-lit footage', 9);
-  addSectionBreak();
-  
-  addText('DON\'T:', 12, true, '#dc3545');
-  addText('• Incorrect technique or unsafe positions', 9);
-  addText('• Inappropriate angles or awkward shots', 9);
-  addText('• Blurry, dark, or poor quality footage', 9);
-  addText('• Upset or frustrated children', 9);
-  addText('• Cluttered backgrounds', 9);
-  addSectionBreak();
-  
-  addText('💡 GOLDEN RULE', 12, true, '#8B4A4A');
-  addText('Ask yourself: "Would I want this shared if it were my child?" If yes—film it! If you hesitate, don\'t.', 10, true);
-  addSectionBreak();
-  
-  // Technical specs
-  addText('⚙️ TECHNICAL SPECS', 12, true, '#8B4A4A');
-  addText('• Photos: High resolution, well-lit', 9);
-  addText('• Format: Vertical preferred (landscape OK)', 9);
-  addText('• Quality: Clear, steady, in focus', 9);
-  addText('• Composition: Full body in frame', 9);
-  addSectionBreak();
-  
-  // File naming
-  addText('🏷️ FILE NAMING', 12, true, '#8B4A4A');
-  addText('Use descriptive names like:', 10);
-  addText('• HandstandContest', 9);
-  addText('• BeatBoredom', 9);
-  addText('• ForwardRoll', 9);
-  addText('• ConfidencePhoto', 9);
-  addSectionBreak();
-  
-  // Submission process
-  addText('📤 SUBMISSION PROCESS', 12, true, '#8B4A4A');
-  addText('1. Select your gym location', 9);
-  addText('2. Name your content descriptively', 9);
-  addText('3. Upload files to SharePoint', 9);
-  addText('4. Rename files in SharePoint manually', 9);
-  addSectionBreak();
-  
-  // Footer
-  yPosition = pageHeight - 30;
-  pdf.setFillColor(240, 240, 240);
-  pdf.rect(0, yPosition - 5, pageWidth, 25, 'F');
-  
-  pdf.setTextColor('#666666');
-  pdf.setFontSize(8);
-  pdf.text('For detailed instructions, visit the full web guide at your gym\'s content portal', pageWidth / 2, yPosition + 5, { align: 'center' });
-  pdf.text('Questions? Reach out to your content coordinator anytime!', pageWidth / 2, yPosition + 12, { align: 'center' });
+  addText('8. Balance Reel', 12, true, '#8B4A4A');
+  addText('REEL | 3 VIDEOS', 10, true);
+  addText('Video 1: Walking on Beam', 10, true);
+  addText('Beam perspective view. Gymnast walks slowly toward the camera.', 10);
+  addText('Video 2: Skill', 10, true);
+  addText('Switch to a side view of the gymnast on beam. Film one dynamic beam skill of the athlete\'s choice—anything that shows action and control.', 10);
+  addText('Video 3: Dismount', 10, true);
+  addText('Film from a new angle. Show the entire dismount, from prep to stick + salute.', 10);
   
   // Save the PDF
   pdf.save('July-Content-Quick-Guide.pdf');
