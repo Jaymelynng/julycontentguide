@@ -225,11 +225,16 @@ export const generatePDF = async () => {
     const contentWidth = pageWidth - (margin * 2);
     let yPosition = margin;
 
+    // Set consistent font and color for the entire document
+    pdf.setFont('helvetica', 'normal');
+    pdf.setTextColor(0, 0, 0); // Black text throughout
+
     // Helper function to add text with word wrapping
-    const addText = (text: string, fontSize: number = 10, isBold: boolean = false, color: [number, number, number] = [0, 0, 0]) => {
+    const addText = (text: string, fontSize: number = 10, isBold: boolean = false) => {
       pdf.setFontSize(fontSize);
       pdf.setFont('helvetica', isBold ? 'bold' : 'normal');
-      pdf.setTextColor(color[0], color[1], color[2]);
+      // Keep text color consistent - always black
+      pdf.setTextColor(0, 0, 0);
       
       const lines = pdf.splitTextToSize(text, contentWidth);
       
@@ -246,7 +251,7 @@ export const generatePDF = async () => {
     // Helper function to add section divider
     const addDivider = () => {
       yPosition += 8;
-      pdf.setDrawColor(212, 165, 165);
+      pdf.setDrawColor(150, 150, 150);
       pdf.setLineWidth(0.5);
       pdf.line(margin, yPosition, pageWidth - margin, yPosition);
       yPosition += 12;
@@ -265,43 +270,43 @@ export const generatePDF = async () => {
       
       // Detect different types of content and format accordingly
       if (line === 'July Content') {
-        // Main title
-        addText(line, 24, true, [139, 74, 74]);
+        // Main title - larger and bold but still black
+        addText(line, 20, true);
         yPosition += 8;
       } else if (line === 'Table of Contents' || line === 'Content Format Structure' || line === 'CONTENT TASKS') {
-        // Major section headers
-        addText(line, 16, true, [139, 74, 74]);
+        // Major section headers - bold but black
+        addText(line, 14, true);
         yPosition += 5;
-      } else if (line.includes('REEL |') || line.includes('PHOTO |') || line.includes('PHOTOS |') || line.includes('VIDEO')) {
-        // Content type badges
-        addText(line, 11, true, [176, 138, 138]);
+      } else if (line.includes('REEL |') || line.includes('PHOTO |') || line.includes('PHOTOS |')) {
+        // Content type badges - bold but black
+        addText(line, 10, true);
         yPosition += 2;
       } else if (line.startsWith('Post Visual:') || line.startsWith('Content Notes:') || line.startsWith('UPLOAD') || line.startsWith('What to Upload:')) {
-        // Special formatted lines
-        addText(line, 11, true, [139, 74, 74]);
+        // Special formatted lines - bold but black
+        addText(line, 10, true);
         yPosition += 2;
       } else if (line.startsWith('- ') || line.startsWith('* ')) {
-        // Bullet points
-        addText('• ' + line.substring(2), 9, false, [45, 55, 72]);
+        // Bullet points - regular black text
+        addText('• ' + line.substring(2), 9, false);
       } else if (/^\d+\./.test(line)) {
-        // Numbered lists
-        addText(line, 9, false, [45, 55, 72]);
+        // Numbered lists - regular black text
+        addText(line, 9, false);
       } else if (line.startsWith('Camera:') || line.startsWith('Scene ')) {
-        // Camera instructions and scene descriptions
-        addText(line, 9, true, [102, 102, 102]);
+        // Camera instructions and scene descriptions - regular black text
+        addText(line, 9, false);
       } else if (line === '---') {
         // Dividers
         addDivider();
       } else if (line.includes('Epic Ways') || line.includes('Fireworks') || line.includes('Handstand') || line.includes('Confidence') || line.includes('Keep Up') || line.includes('Riddle') || line.includes('Not Sure') || line.includes('Balance Reel')) {
-        // Section titles
-        addText(line, 14, true, [139, 74, 74]);
+        // Section titles - bold but black
+        addText(line, 12, true);
         yPosition += 3;
       } else if (line.startsWith('Video ') || line.startsWith('Photo ')) {
-        // Video/Photo labels
-        addText(line, 10, true, [45, 55, 72]);
+        // Video/Photo labels - bold but black
+        addText(line, 10, true);
       } else {
-        // Regular text
-        addText(line, 9, false, [45, 55, 72]);
+        // Regular text - normal black text
+        addText(line, 9, false);
       }
     }
 
