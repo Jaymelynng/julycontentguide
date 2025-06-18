@@ -21,7 +21,7 @@ export function HandstandSection() {
         
         <div className="upload-details">
           <div className="upload-item">
-            <h4>🎨 Your Creative Options:</h4>
+            <h4>🎨 Ideas:</h4>
             <ul>
               <li><strong>Contest Style:</strong> One big contest with crazy high energy OR multiple mini-contests with different angles</li>
               <li><strong>Participants:</strong> Kids only, coaches only, OR mix kids and coaches together</li>
