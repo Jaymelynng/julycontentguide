@@ -1816,11 +1816,11 @@ h4 {
 }
 
 .pdf-download-btn {
-  background: linear-gradient(135deg, #28a745, #20c997) !important;
+  background: linear-gradient(135deg, #4a5568, #2d3748) !important;
 }
 
 .pdf-download-btn:hover {
-  background: linear-gradient(135deg, #20c997, #28a745) !important;
+  background: linear-gradient(135deg, #2d3748, #1a202c) !important;
 }
 
 /* Content Section PDF Generator */

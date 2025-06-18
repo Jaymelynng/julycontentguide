@@ -24,7 +24,7 @@ export function QuickGuidePDFButton() {
       <button
         onClick={handleDownload}
         disabled={isGenerating}
-        className={`pdf-generator-btn ${isGenerating ? 'generating' : ''}`}
+        className={`pdf-generator-btn pdf-download-btn ${isGenerating ? 'generating' : ''}`}
       >
         {isGenerating ? (
           <>

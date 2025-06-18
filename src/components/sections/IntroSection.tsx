@@ -23,7 +23,9 @@ export function IntroSection() {
     <div id="mission-page" className="mission-page">
       {/* Quick Guide Download */}
       <div className="quick-guide-download">
-        <QuickGuidePDFButton />
+        <div className="pdf-generator-container">
+          <QuickGuidePDFButton />
+        </div>
       </div>
 
       {/* Quick Navigation */}
