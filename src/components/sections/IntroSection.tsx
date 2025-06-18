@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PDFGeneratorButton } from '../PDFGeneratorButton';
 
 export function IntroSection() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -20,7 +21,7 @@ export function IntroSection() {
 
 
   return (
-    <div className="mission-page">
+    <div id="mission-page" className="mission-page">
       {/* Quick Navigation */}
       <div className="quick-navigation">
         <h3>Quick Access</h3>
@@ -37,6 +38,12 @@ export function IntroSection() {
           >
             ⚙️ Technical Standards & Quality
           </button>
+          <PDFGeneratorButton
+            targetElementId="mission-page"
+            filename="July-Content-Mission-Guide.pdf"
+            buttonText="📄 Download PDF Guide"
+            className="quick-nav-btn pdf-download-btn"
+          />
         </div>
       </div>
 
