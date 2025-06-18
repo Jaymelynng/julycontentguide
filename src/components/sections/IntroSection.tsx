@@ -132,7 +132,32 @@ export function IntroSection() {
         </div>
         
         <div className="news-grid">
-          {/* News items will be added here when needed */}
+          <div style={{
+            background: 'linear-gradient(135deg, #4a5568, #2d3748)',
+            padding: '1.5rem',
+            borderRadius: '0.8rem',
+            border: '2px solid #718096',
+            color: 'white'
+          }}>
+            <h3 style={{ 
+              color: 'white', 
+              margin: '0 0 1rem 0', 
+              fontSize: '1.2rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}>
+              📄 PDF Downloads Available
+            </h3>
+            <p style={{ 
+              color: '#e2e8f0', 
+              margin: '0',
+              lineHeight: '1.6'
+            }}>
+              Each content section now includes a <strong>"Download This Section as PDF"</strong> button at the top. 
+              Perfect for offline reference, printing, or sharing with your team!
+            </p>
+          </div>
         </div>
         
         <div className="news-footer">
