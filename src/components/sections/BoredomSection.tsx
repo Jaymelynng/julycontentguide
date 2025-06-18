@@ -34,38 +34,48 @@ export function BoredomSection() {
 
         <h3>🎥 UPLOAD THESE 5 VIDEOS:</h3>
         
-        <div className="upload-item">
-          <h4>📹 Video 1: Group/Team Activity – High-Energy and Physical</h4>
-          <p><strong>Kids feel:</strong> excited, energized—this place looks like so much fun!</p>
-          <p><strong>Parents value:</strong> teamwork, physical activity</p>
-        </div>
+        <div className="upload-details">
+          <div className="upload-item">
+            <h4>📹 Video 1: Group/Team Activity – High-Energy and Physical</h4>
+            <ul>
+              <li>Kids feel: excited, energized—this place looks like so much fun!</li>
+              <li>Parents value: teamwork, physical activity</li>
+            </ul>
+          </div>
 
-        <div className="upload-item">
-          <h4>📹 Video 2: Learning & Progress</h4>
-          <p><strong>Kids feel:</strong> eager to show off a new skill</p>
-          <p><strong>Parents value:</strong> personal growth, progress</p>
-        </div>
+          <div className="upload-item">
+            <h4>📹 Video 2: Learning & Progress</h4>
+            <ul>
+              <li>Kids feel: eager to show off a new skill</li>
+              <li>Parents value: personal growth, progress</li>
+            </ul>
+          </div>
 
-        <div className="upload-item">
-          <h4>📹 Video 3: Friendship & Connection</h4>
-          <p><strong>Kids feel:</strong> excited to have fun with friends or make new ones</p>
-          <p><strong>Parents value:</strong> social growth, new experiences, lasting memories</p>
-        </div>
+          <div className="upload-item">
+            <h4>📹 Video 3: Friendship & Connection</h4>
+            <ul>
+              <li>Kids feel: excited to have fun with friends or make new ones</li>
+              <li>Parents value: social growth, new experiences, lasting memories</li>
+            </ul>
+          </div>
 
-        <div className="upload-item">
-          <h4>📹 Video 4: Gym Personality & Playfulness</h4>
-          <p><strong>Kids feel:</strong> how fun the gym is and how cool the coaches are</p>
-          <p><strong>Parents value:</strong> playful, positive role models and a healthy environment</p>
-        </div>
+          <div className="upload-item">
+            <h4>📹 Video 4: Gym Personality & Playfulness</h4>
+            <ul>
+              <li>Kids feel: how fun the gym is and how cool the coaches are</li>
+              <li>Parents value: playful, positive role models and a healthy environment</li>
+            </ul>
+          </div>
 
-        <div className="upload-item">
-          <h4>📹 Video 5: Happy & Worn Out</h4>
-          <p><strong>Kids feel:</strong> fulfilled, can't wait to come back tomorrow</p>
-          <p><strong>Parents value:</strong> a full, active, happy day</p>
+          <div className="upload-item">
+            <h4>📹 Video 5: Happy & Worn Out</h4>
+            <ul>
+              <li>Kids feel: fulfilled, can't wait to come back tomorrow</li>
+              <li>Parents value: a full, active, happy day</li>
+            </ul>
+          </div>
         </div>
       </div>
-
-      <UploadChecklist items={checklistItems} section="boredom" />
 
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
