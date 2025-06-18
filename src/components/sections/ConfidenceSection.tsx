@@ -22,7 +22,7 @@ export function ConfidenceSection() {
         <h3>📷 UPLOAD THIS 1 PHOTO:</h3>
         <div className="upload-details">
           <div className="upload-item">
-            <h4>📸 One incredible photo of a child achieving something big (rope climb, ninja course, new skill, etc.)</h4>
+            <h4>📸 One incredible photo of a kido/s beaming with pride (rope climb, ninja course, new skill, etc.)</h4>
           </div>
         </div>
       </div>
