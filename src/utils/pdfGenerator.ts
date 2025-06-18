@@ -217,7 +217,7 @@ Camera: Full shot → zoom in on the landing or arms lifting in salute.`;
 
 export const generatePDF = async () => {
   try {
-    // Create new PDF document
+    // Create new PDF document with high quality
     const pdf = new jsPDF('p', 'mm', 'a4');
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
@@ -225,93 +225,239 @@ export const generatePDF = async () => {
     const contentWidth = pageWidth - (margin * 2);
     let yPosition = margin;
 
-    // Set consistent font and color for the entire document
-    pdf.setFont('helvetica', 'normal');
-    pdf.setTextColor(0, 0, 0); // Black text throughout
+    // Color scheme matching your app
+    const colors = {
+      primary: [139, 74, 107], // #8b4a6b - Dark pink for headings
+      secondary: [212, 164, 184], // #d4a4b8 - Light pink
+      accent: [232, 180, 203], // #e8b4cb - Lighter pink
+      text: [45, 55, 72], // Dark gray for body text
+      black: [0, 0, 0] // Pure black for emphasis
+    };
 
-    // Helper function to add text with word wrapping
-    const addText = (text: string, fontSize: number = 10, isBold: boolean = false) => {
-      pdf.setFontSize(fontSize);
-      pdf.setFont('helvetica', isBold ? 'bold' : 'normal');
-      // Keep text color consistent - always black
-      pdf.setTextColor(0, 0, 0);
-      
-      const lines = pdf.splitTextToSize(text, contentWidth);
-      
-      // Check if we need a new page
-      if (yPosition + (lines.length * fontSize * 0.35) > pageHeight - margin) {
+    // Add beautiful header with gradient effect
+    const addHeader = () => {
+      // Create gradient background effect with rectangles
+      for (let i = 0; i < 20; i++) {
+        const alpha = 0.8 - (i * 0.04);
+        pdf.setFillColor(colors.accent[0], colors.accent[1], colors.accent[2]);
+        pdf.setGlobalAlpha(alpha);
+        pdf.rect(0, i * 2, pageWidth, 2, 'F');
+      }
+      pdf.setGlobalAlpha(1);
+
+      // Add main title
+      pdf.setFont('helvetica', 'bold');
+      pdf.setFontSize(28);
+      pdf.setTextColor(255, 255, 255); // White text on gradient
+      const titleText = '📣 July Content';
+      const titleWidth = pdf.getTextWidth(titleText);
+      pdf.text(titleText, (pageWidth - titleWidth) / 2, 25);
+
+      // Add subtitle
+      pdf.setFontSize(12);
+      pdf.setFont('helvetica', 'normal');
+      const subtitle = 'Your Guide to Capturing Summer Magic';
+      const subtitleWidth = pdf.getTextWidth(subtitle);
+      pdf.text(subtitle, (pageWidth - subtitleWidth) / 2, 35);
+
+      yPosition = 55;
+    };
+
+    // Helper function to check if we need a new page
+    const checkNewPage = (requiredSpace: number = 20) => {
+      if (yPosition + requiredSpace > pageHeight - margin) {
         pdf.addPage();
         yPosition = margin;
+        return true;
       }
+      return false;
+    };
+
+    // Helper function to add styled text
+    const addStyledText = (text: string, style: 'title' | 'heading' | 'subheading' | 'body' | 'bullet' | 'badge' = 'body') => {
+      let fontSize = 10;
+      let fontWeight: 'normal' | 'bold' = 'normal';
+      let color = colors.text;
+      let spacing = 4;
+
+      switch (style) {
+        case 'title':
+          fontSize = 18;
+          fontWeight = 'bold';
+          color = colors.primary;
+          spacing = 8;
+          break;
+        case 'heading':
+          fontSize = 14;
+          fontWeight = 'bold';
+          color = colors.primary;
+          spacing = 6;
+          break;
+        case 'subheading':
+          fontSize = 12;
+          fontWeight = 'bold';
+          color = colors.primary;
+          spacing = 5;
+          break;
+        case 'badge':
+          fontSize = 9;
+          fontWeight = 'bold';
+          color = colors.black;
+          spacing = 3;
+          break;
+        case 'bullet':
+          fontSize = 9;
+          fontWeight = 'normal';
+          color = colors.text;
+          spacing = 3;
+          break;
+        default:
+          fontSize = 10;
+          fontWeight = 'normal';
+          color = colors.text;
+          spacing = 4;
+      }
+
+      pdf.setFont('helvetica', fontWeight);
+      pdf.setFontSize(fontSize);
+      pdf.setTextColor(color[0], color[1], color[2]);
+
+      const lines = pdf.splitTextToSize(text, contentWidth);
+      
+      checkNewPage(lines.length * fontSize * 0.35 + spacing);
       
       pdf.text(lines, margin, yPosition);
-      yPosition += lines.length * fontSize * 0.35 + 4;
+      yPosition += lines.length * fontSize * 0.35 + spacing;
     };
 
     // Helper function to add section divider
     const addDivider = () => {
-      yPosition += 8;
-      pdf.setDrawColor(150, 150, 150);
-      pdf.setLineWidth(0.5);
+      yPosition += 5;
+      checkNewPage(10);
+      
+      // Create a beautiful divider line
+      pdf.setDrawColor(colors.secondary[0], colors.secondary[1], colors.secondary[2]);
+      pdf.setLineWidth(1);
       pdf.line(margin, yPosition, pageWidth - margin, yPosition);
-      yPosition += 12;
+      
+      // Add decorative dots
+      pdf.setFillColor(colors.primary[0], colors.primary[1], colors.primary[2]);
+      pdf.circle(pageWidth / 2, yPosition, 1.5, 'F');
+      
+      yPosition += 10;
     };
+
+    // Helper function to add content box
+    const addContentBox = (content: string, title?: string) => {
+      checkNewPage(30);
+      
+      // Calculate box height
+      const lines = pdf.splitTextToSize(content, contentWidth - 10);
+      const boxHeight = lines.length * 3 + 15;
+      
+      // Draw background box
+      pdf.setFillColor(250, 248, 252); // Very light pink background
+      pdf.setDrawColor(colors.secondary[0], colors.secondary[1], colors.secondary[2]);
+      pdf.setLineWidth(0.5);
+      pdf.roundedRect(margin, yPosition - 5, contentWidth, boxHeight, 3, 3, 'FD');
+      
+      if (title) {
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(11);
+        pdf.setTextColor(colors.primary[0], colors.primary[1], colors.primary[2]);
+        pdf.text(title, margin + 5, yPosition + 5);
+        yPosition += 8;
+      }
+      
+      pdf.setFont('helvetica', 'normal');
+      pdf.setFontSize(9);
+      pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2]);
+      pdf.text(lines, margin + 5, yPosition + 5);
+      
+      yPosition += boxHeight + 5;
+    };
+
+    // Start generating the PDF
+    addHeader();
+
+    // Add mission statement
+    addStyledText('Show off the real moments that make your gyms so unique and special—kids learning, trying new things, and having a blast. Snap the smiles, teamwork, and big "I did it!" moments. These are what inspire families and show how amazing you are.', 'body');
+    
+    yPosition += 10;
 
     // Parse and format the content
     const lines = exactContent.split('\n');
+    let currentSection = '';
     
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
       
       if (!line) {
-        yPosition += 3;
+        yPosition += 2;
+        continue;
+      }
+      
+      // Skip the first few lines since we handled them in header
+      if (line === 'July Content' || line.includes('Show off the real moments')) {
         continue;
       }
       
       // Detect different types of content and format accordingly
-      if (line === 'July Content') {
-        // Main title - larger and bold but still black
-        addText(line, 20, true);
-        yPosition += 8;
-      } else if (line === 'Table of Contents' || line === 'Content Format Structure' || line === 'CONTENT TASKS') {
-        // Major section headers - bold but black
-        addText(line, 14, true);
-        yPosition += 5;
+      if (line === 'Table of Contents') {
+        addStyledText(line, 'heading');
+      } else if (line === 'Content Format Structure' || line === 'CONTENT TASKS') {
+        addDivider();
+        addStyledText(line, 'heading');
       } else if (line.includes('REEL |') || line.includes('PHOTO |') || line.includes('PHOTOS |')) {
-        // Content type badges - bold but black
-        addText(line, 10, true);
-        yPosition += 2;
-      } else if (line.startsWith('Post Visual:') || line.startsWith('Content Notes:') || line.startsWith('UPLOAD') || line.startsWith('What to Upload:')) {
-        // Special formatted lines - bold but black
-        addText(line, 10, true);
-        yPosition += 2;
+        // Content type badges in a styled box
+        addContentBox(line, '📋 Content Type');
+      } else if (line.startsWith('Post Visual:')) {
+        addStyledText(line, 'subheading');
+      } else if (line.startsWith('Content Notes:')) {
+        addStyledText(line, 'subheading');
+      } else if (line.startsWith('UPLOAD') || line.startsWith('What to Upload:')) {
+        addStyledText(line, 'subheading');
       } else if (line.startsWith('- ') || line.startsWith('* ')) {
-        // Bullet points - regular black text
-        addText('• ' + line.substring(2), 9, false);
+        addStyledText('• ' + line.substring(2), 'bullet');
       } else if (/^\d+\./.test(line)) {
-        // Numbered lists - regular black text
-        addText(line, 9, false);
+        addStyledText(line, 'bullet');
       } else if (line.startsWith('Camera:') || line.startsWith('Scene ')) {
-        // Camera instructions and scene descriptions - regular black text
-        addText(line, 9, false);
+        addStyledText(line, 'bullet');
       } else if (line === '---') {
-        // Dividers
         addDivider();
       } else if (line.includes('Epic Ways') || line.includes('Fireworks') || line.includes('Handstand') || line.includes('Confidence') || line.includes('Keep Up') || line.includes('Riddle') || line.includes('Not Sure') || line.includes('Balance Reel')) {
-        // Section titles - bold but black
-        addText(line, 12, true);
-        yPosition += 3;
+        // Major section titles
+        addDivider();
+        addStyledText(line, 'title');
+        currentSection = line;
       } else if (line.startsWith('Video ') || line.startsWith('Photo ')) {
-        // Video/Photo labels - bold but black
-        addText(line, 10, true);
+        addStyledText(line, 'subheading');
+      } else if (line.includes('Kids feel:') || line.includes('Parents value:')) {
+        addStyledText(line, 'bullet');
       } else {
-        // Regular text - normal black text
-        addText(line, 9, false);
+        addStyledText(line, 'body');
+      }
+    }
+
+    // Add footer on last page
+    const pageCount = pdf.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      pdf.setPage(i);
+      
+      // Add page number
+      pdf.setFont('helvetica', 'normal');
+      pdf.setFontSize(8);
+      pdf.setTextColor(colors.text[0], colors.text[1], colors.text[2]);
+      pdf.text(`Page ${i} of ${pageCount}`, pageWidth - margin - 20, pageHeight - 10);
+      
+      // Add footer text on first page
+      if (i === 1) {
+        pdf.text('July Content Guide - Created with ❤️', margin, pageHeight - 10);
       }
     }
 
     // Save the PDF
-    pdf.save('July-Content.pdf');
+    pdf.save('July-Content-Guide.pdf');
     
   } catch (error) {
     console.error('Error generating PDF:', error);

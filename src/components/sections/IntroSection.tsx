@@ -36,9 +36,9 @@ export function IntroSection() {
         <div className="quick-nav-buttons">
           <button 
             onClick={handleDownloadPDF}
-            className="quick-nav-btn"
+            className="quick-nav-btn pdf-download-btn"
           >
-            📄 Download July Content PDF
+            📄 Download Beautiful PDF Guide
           </button>
           <button 
             onClick={() => scrollToSection('guidelines-section')}
