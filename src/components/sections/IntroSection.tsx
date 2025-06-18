@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { QuickGuidePDFButton } from '../QuickGuidePDFButton';
 
 export function IntroSection() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -132,6 +133,36 @@ export function IntroSection() {
         </div>
         
         <div className="news-grid">
+          <div style={{
+            background: 'linear-gradient(135deg, #28a745, #20c997)',
+            padding: '1.5rem',
+            borderRadius: '0.8rem',
+            border: '2px solid #17a2b8',
+            color: 'white',
+            textAlign: 'center'
+          }}>
+            <h3 style={{ 
+              color: 'white', 
+              margin: '0 0 1rem 0', 
+              fontSize: '1.2rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.5rem'
+            }}>
+              📋 Quick Reference Guide
+            </h3>
+            <p style={{ 
+              color: '#e8f5e8', 
+              margin: '0 0 1.5rem 0',
+              lineHeight: '1.6'
+            }}>
+              Download a <strong>3-page condensed checklist</strong> perfect for quick reference, 
+              printing, or sharing with your team!
+            </p>
+            <QuickGuidePDFButton />
+          </div>
+          
           <div style={{
             background: 'linear-gradient(135deg, #4a5568, #2d3748)',
             padding: '1.5rem',
