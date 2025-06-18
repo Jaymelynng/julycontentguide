@@ -16,7 +16,7 @@ export function BoredomSection() {
     <div>
       <h1>
         5 Epic Ways to Beat Summer Boredom
-        <ContentBadge type="series" label="VIDEO SERIES" />
+        <ContentBadge type="series" label="REEL | 5 VIDEOS" />
       </h1>
 
       <div className="content-section">
@@ -32,10 +32,10 @@ export function BoredomSection() {
           <li>What you submit should be post-ready and require no further trimming or cleanup. I'll handle stitching the final clips together with transitions.</li>
         </ul>
 
-        <h3>🎥 What to Upload — How It Feels & Why It Matters:</h3>
+        <h3>🎥 UPLOAD THESE 5 VIDEOS:</h3>
         <div className="upload-details">
           <div className="upload-item">
-            <h4>Video 1: Group/Team Activity – High-Energy and Physical</h4>
+            <h4>📹 Video 1: Group/Team Activity – High-Energy and Physical</h4>
             <ul>
               <li>Kids feel: excited, energized—this place looks like so much fun!</li>
               <li>Parents value: teamwork, physical activity</li>
@@ -43,7 +43,7 @@ export function BoredomSection() {
           </div>
 
           <div className="upload-item">
-            <h4>Video 2: Learning & Progress</h4>
+            <h4>📹 Video 2: Learning & Progress</h4>
             <ul>
               <li>Kids feel: eager to show off a new skill</li>
               <li>Parents value: personal growth, progress</li>
@@ -51,7 +51,7 @@ export function BoredomSection() {
           </div>
 
           <div className="upload-item">
-            <h4>Video 3: Friendship & Connection</h4>
+            <h4>📹 Video 3: Friendship & Connection</h4>
             <ul>
               <li>Kids feel: excited to have fun with friends or make new ones</li>
               <li>Parents value: social growth, new experiences, lasting memories</li>
@@ -59,7 +59,7 @@ export function BoredomSection() {
           </div>
 
           <div className="upload-item">
-            <h4>Video 4: Gym Personality & Playfulness</h4>
+            <h4>📹 Video 4: Gym Personality & Playfulness</h4>
             <ul>
               <li>Kids feel: how fun the gym is and how cool the coaches are</li>
               <li>Parents value: playful, positive role models and a healthy environment</li>
@@ -67,7 +67,7 @@ export function BoredomSection() {
           </div>
 
           <div className="upload-item">
-            <h4>Video 5: Happy & Worn Out</h4>
+            <h4>📹 Video 5: Happy & Worn Out</h4>
             <ul>
               <li>Kids feel: fulfilled, can't wait to come back tomorrow</li>
               <li>Parents value: a full, active, happy day</li>

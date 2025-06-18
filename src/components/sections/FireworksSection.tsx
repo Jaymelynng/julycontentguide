@@ -5,29 +5,30 @@ import { GymSelector } from '../GymSelector';
 
 export function FireworksSection() {
   const checklistItems = [
-    { id: 'fireworks1', label: 'One photo of kids celebrating', type: 'photo' as const },
+    { id: 'fireworks1', label: 'One group action shot', type: 'photo' as const },
   ];
 
   return (
     <div>
       <h1>
         4th of July Fireworks
-        <ContentBadge type="photo" label="PHOTO" />
+        <ContentBadge type="photo" label="PHOTO | 1 PHOTO" />
       </h1>
 
       <div className="content-section">
         <h3>🎯 Post Visual:</h3>
-        <p>A joyful, festive celebration moment that feels like a summer "fireworks" finale.</p>
+        <p>Kids caught mid-action, like jumping or cheering, at the peak moment-think fireworks.</p>
 
         <h3>📌 Content Notes:</h3>
-        <p>Capture one clear, bright image of excitement at its peak—this will be used as a highlight image.</p>
+        <p>Focus on capturing one clear, bright image that highlights excitement at its peak. Ensure the photo is well-lit and crisp no blur.</p>
 
-        <h3>📷 What to Upload:</h3>
-        <p>One photo of kids either:</p>
-        <ul>
-          <li>Throwing pit cubes in the air</li>
-          <li>Or celebrating in a large, excited group</li>
-        </ul>
+        <h3>📷 UPLOAD THIS 1 PHOTO:</h3>
+        <div className="upload-details">
+          <div className="upload-item">
+            <h4>📸 One group action shot</h4>
+            <p>Example: Throwing pit cubs.jumping into pit</p>
+          </div>
+        </div>
       </div>
 
       <UploadChecklist items={checklistItems} section="fireworks" />

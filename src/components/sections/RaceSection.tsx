@@ -11,19 +11,23 @@ export function RaceSection() {
   return (
     <div>
       <h1>
-        "Can You Keep Up?" – Coach vs. Kid Race
-        <ContentBadge type="video" label="VIDEO" />
+        1 Video "Can You Keep Up?" – Coach vs. Kid Race
+        <ContentBadge type="video" label="REEL | 1 VIDEO" />
       </h1>
 
       <div className="content-section">
         <h3>🎯 Post Visual:</h3>
-        <p>A fun, fast-paced showdown between kids and coaches full of laughter, cheering, and big energy.</p>
+        <p>Coaches participating in obstacle course/race activities with kids—showing coaches actually doing camp games and challenges alongside campers.</p>
 
         <h3>📌 Content Notes:</h3>
-        <p>Film one continuous race from start ("Ready, Set, Go!") to final reactions. Capture both action and fun!</p>
+        <p>Film one continuous race from start ("Ready, Set, Go!") to final reactions. Capture both action and fun! Focus on the playful interaction between coaches and kids. can be one or multiple shots angles</p>
 
-        <h3>🎥 What to Upload:</h3>
-        <p>One full video: Start with "Ready, Set, Go!" → End after reactions</p>
+        <h3>🎥 UPLOAD THIS 1 VIDEO:</h3>
+        <div className="upload-details">
+          <div className="upload-item">
+            <h4>📹 One full video: Start with "Ready, Set, Go!" → End after reactions</h4>
+          </div>
+        </div>
       </div>
 
       <UploadChecklist items={checklistItems} section="race" />

@@ -12,7 +12,7 @@ export function HandstandSection() {
     <div>
       <h1>
         Handstand Contest!!!
-        <ContentBadge type="video" label="VIDEO" />
+        <ContentBadge type="video" label="REEL | 1 VIDEO" />
       </h1>
 
       <div className="content-section">
@@ -26,8 +26,12 @@ export function HandstandSection() {
           <li>If you're not sure how to do that, just let me know—I can help.</li>
         </ul>
 
-        <h3>🎥 What to Upload:</h3>
-        <p>One 20–30 second continuous video capturing the full contest</p>
+        <h3>🎥 UPLOAD THIS 1 VIDEO:</h3>
+        <div className="upload-details">
+          <div className="upload-item">
+            <h4>📹 One 20–30 second continuous video capturing the full contest</h4>
+          </div>
+        </div>
       </div>
 
       <UploadChecklist items={checklistItems} section="handstand" />
