@@ -89,8 +89,8 @@ body {
 .nav-btn {
   width: 100%;
   padding: 1rem 1.2rem;
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  border: 2px solid #4a5568;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1rem;
   color: var(--white);
@@ -100,16 +100,15 @@ body {
   font-weight: 600;
   transition: all 0.2s ease;
   margin-bottom: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .nav-btn.active, .nav-btn:hover {
-  background: var(--white);
-  color: var(--sidebar-bg);
-  border-color: var(--white);
+  background: linear-gradient(135deg, #1a202c, #171923);
+  color: var(--white);
+  border-color: #718096;
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   font-weight: 700;
 }
 
