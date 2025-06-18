@@ -4,10 +4,6 @@ import { UploadChecklist } from '../UploadChecklist';
 import { GymSelector } from '../GymSelector';
 
 export function ConfidenceSection() {
-  const checklistItems = [
-    { id: 'confidence1', label: 'One incredible photo of a child achieving something big', type: 'photo' as const },
-  ];
-
   return (
     <div>
       <h1>
@@ -29,8 +25,6 @@ export function ConfidenceSection() {
           </div>
         </div>
       </div>
-
-      <UploadChecklist items={checklistItems} section="confidence" />
 
       <div className="fun-divider">
         <span className="fun-divider-icon">🚀</span>
