@@ -17,6 +17,7 @@ export function ConfidenceSection() {
 
         <h3>📌 Content Notes:</h3>
         <p>Choose one powerful, clear image that radiates confidence. It should be that photo that instantly makes you smile. Highlight the child's face and emotion in action.</p>
+        <p>Close up or far away - as long as it gets the reaction and vibe. Well-lit and crisp.</p>
 
         <h3>📷 UPLOAD THIS 1 PHOTO:</h3>
         <div className="upload-details">
