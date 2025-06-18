@@ -21,6 +21,11 @@ export function IntroSection() {
 
   return (
     <div id="mission-page" className="mission-page">
+      {/* Quick Guide Download */}
+      <div className="quick-guide-download">
+        <QuickGuidePDFButton />
+      </div>
+
       {/* Quick Navigation */}
       <div className="quick-navigation">
         <h3>Quick Access</h3>
@@ -134,36 +139,6 @@ export function IntroSection() {
         
         <div className="news-grid">
           <div style={{
-            background: 'linear-gradient(135deg, #28a745, #20c997)',
-            padding: '1.5rem',
-            borderRadius: '0.8rem',
-            border: '2px solid #17a2b8',
-            color: 'white',
-            textAlign: 'center'
-          }}>
-            <h3 style={{ 
-              color: 'white', 
-              margin: '0 0 1rem 0', 
-              fontSize: '1.2rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem'
-            }}>
-              📋 Quick Reference Guide
-            </h3>
-            <p style={{ 
-              color: '#e8f5e8', 
-              margin: '0 0 1.5rem 0',
-              lineHeight: '1.6'
-            }}>
-              Download a <strong>3-page condensed checklist</strong> perfect for quick reference, 
-              printing, or sharing with your team!
-            </p>
-            <QuickGuidePDFButton />
-          </div>
-          
-          <div style={{
             background: 'linear-gradient(135deg, #4a5568, #2d3748)',
             padding: '1.5rem',
             borderRadius: '0.8rem',
@@ -185,8 +160,9 @@ export function IntroSection() {
               margin: '0',
               lineHeight: '1.6'
             }}>
-              Each content section now includes a <strong>"Download This Section as PDF"</strong> button at the top. 
-              Perfect for offline reference, printing, or sharing with your team!
+              <strong>Two ways to get PDFs:</strong><br/>
+              • <strong>Quick Guide:</strong> Download the condensed 3-page checklist above<br/>
+              • <strong>Individual Sections:</strong> Visit any content page and use the "Download This Section as PDF" button at the top for detailed instructions
             </p>
           </div>
         </div>
