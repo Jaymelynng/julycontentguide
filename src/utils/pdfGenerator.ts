@@ -234,21 +234,16 @@ export const generatePDF = async () => {
       black: [0, 0, 0] // Pure black for emphasis
     };
 
-    // Add beautiful header with gradient effect
+    // Add beautiful header
     const addHeader = () => {
-      // Create gradient background effect with rectangles
-      for (let i = 0; i < 20; i++) {
-        const alpha = 0.8 - (i * 0.04);
-        pdf.setFillColor(colors.accent[0], colors.accent[1], colors.accent[2]);
-        pdf.setGlobalAlpha(alpha);
-        pdf.rect(0, i * 2, pageWidth, 2, 'F');
-      }
-      pdf.setGlobalAlpha(1);
+      // Create simple colored background instead of gradient
+      pdf.setFillColor(colors.accent[0], colors.accent[1], colors.accent[2]);
+      pdf.rect(0, 0, pageWidth, 45, 'F');
 
       // Add main title
       pdf.setFont('helvetica', 'bold');
       pdf.setFontSize(28);
-      pdf.setTextColor(255, 255, 255); // White text on gradient
+      pdf.setTextColor(255, 255, 255); // White text on colored background
       const titleText = '📣 July Content';
       const titleWidth = pdf.getTextWidth(titleText);
       pdf.text(titleText, (pageWidth - titleWidth) / 2, 25);
