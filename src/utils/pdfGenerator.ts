@@ -13,7 +13,7 @@ export const generatePDF = () => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>July Content Guide</title>
+    <title>July Content</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
         
@@ -76,11 +76,6 @@ export const generatePDF = () => {
             margin: 30px 0;
             text-align: center;
             border-left: 6px solid #B08A8A;
-        }
-        
-        .mission-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
         }
         
         .mission-text {
@@ -307,17 +302,7 @@ export const generatePDF = () => {
 <body>
     <div class="header">
         <h1 class="main-title">📣 July Content</h1>
-        <p class="subtitle">Your Guide to Capturing Summer Magic</p>
-    </div>
-    
-    <div class="mission-statement">
-        <div class="mission-icon">🎯</div>
-        <p class="mission-text">
-            <strong>Show off the real moments that make your gyms so unique and special—kids learning, trying new things, and having a blast. Snap the smiles, teamwork, and big "I did it!" moments. These are what inspire families and show how amazing you are.</strong>
-        </p>
-        <div class="deadline-highlight">
-            All content must be collected in <strong>June</strong> and submitted by <span class="deadline">June 30, 2025</span> for posting in July.
-        </div>
+        <p class="subtitle">Show off the real moments that make your gyms so unique and special—kids learning, trying new things, and having a blast. Snap the smiles, teamwork, and big "I did it!" moments. These are what inspire families and show how amazing you are.</p>
     </div>
 
     <div class="toc">
@@ -354,6 +339,8 @@ export const generatePDF = () => {
     <div class="content-section">
         <h2 class="section-title">5 Epic Ways to Beat Summer Boredom<span class="badge series-badge">REEL | 5 VIDEOS</span></h2>
         <div class="section-content">
+            <h3>📹 REEL | 5 VIDEOS | 15-20 seconds each</h3>
+            
             <h3>🎯 Post Visual:</h3>
             <p>Five clips that visually show the variety and value of summer camp, highlighting fun for kids and demonstrating value to parents. Think energy, friendship, new skills, and adventure.</p>
             
@@ -438,6 +425,8 @@ export const generatePDF = () => {
     <div class="content-section">
         <h2 class="section-title">Handstand Contest!!!<span class="badge video-badge">REEL | 1 VIDEO</span></h2>
         <div class="section-content">
+            <h3>📹 REEL | 1 VIDEO | 20-30 seconds</h3>
+            
             <h3>🎯 Post Visual:</h3>
             <p>Organize a classic handstand contest. Can be walking or no walking! Include kids of any and all levels in your gym—the more mix, the better! Kids, coaches, or both. Get creative with locations: beam handstands, vault table, or any part of the gym. Any team gym cast handstand holds would be fun! Catch the fun energy and team spirit.</p>
             
@@ -558,10 +547,13 @@ export const generatePDF = () => {
             <h3>📌 Content Notes:</h3>
             <p>Use smooth zoom transitions for dramatic effect. Capture different angles for variety. Focus on precision and control in movements.</p>
             
+            <h3>📹 VIDEO SERIES</h3>
+            <h3>📋 What to Upload:</h3>
             <h3>🎥 UPLOAD THESE 3 VIDEOS:</h3>
             
             <div class="video-scene">
                 <h4>📹 Video 1: Walking on Beam</h4>
+                <p><strong>VIDEO</strong></p>
                 <p><strong>🎬 Scene 1: Walking on Beam</strong></p>
                 <p>Start with a straight-down-the-beam view. Gymnast walks slowly toward the camera. This is perspective from the end of the beam so they see what doing skills on a 4 inch beam really looks like.</p>
                 <div class="camera-note">
@@ -571,6 +563,7 @@ export const generatePDF = () => {
             
             <div class="video-scene">
                 <h4>📹 Video 2: Skill – Zoom to Movement</h4>
+                <p><strong>VIDEO</strong></p>
                 <p><strong>🎬 Scene 2: Skill – Zoom to Movement</strong></p>
                 <p>Switch to a side view of the gymnast on beam. Film one dynamic beam skill of the athlete's choice—anything that shows action and control.</p>
                 <div class="camera-note">
@@ -580,6 +573,7 @@ export const generatePDF = () => {
             
             <div class="video-scene">
                 <h4>📹 Video 3: Dismount – Zoom to Landing</h4>
+                <p><strong>VIDEO</strong></p>
                 <p><strong>🎬 Scene 3: Dismount – Zoom to Landing</strong></p>
                 <p>Film from a new angle (diagonal or front corner preferred). Show the entire dismount, from prep to stick + salute.</p>
                 <div class="camera-note">
@@ -594,6 +588,12 @@ export const generatePDF = () => {
         window.onload = function() {
             setTimeout(function() {
                 window.print();
+            }, 1000);
+        };
+        
+        // Close window after printing (optional)
+        window.onafterprint = function() {
+            setTimeout(function() {
                 window.close();
             }, 1000);
         };
