@@ -7,7 +7,7 @@ export function ConfidenceSection() {
   return (
     <div>
       <h1>
-        1 Photo The Secret to Confidence That Lasts Beyond Summer
+        Confidence That Lasts Beyond Summer
         <ContentBadge type="photo" label="PHOTO | 1 PHOTO" />
       </h1>
 
