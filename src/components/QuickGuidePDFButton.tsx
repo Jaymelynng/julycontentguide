@@ -47,7 +47,7 @@ export function QuickGuidePDFButton() {
       )}
 
       <div className="pdf-info-text">
-        <span>📄 3-page condensed checklist for quick reference</span>
+        <span style={{ color: '#2d3748' }}>📄 3-page condensed checklist for quick reference</span>
       </div>
     </div>
   );
