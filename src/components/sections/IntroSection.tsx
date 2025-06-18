@@ -28,25 +28,6 @@ export function IntroSection() {
         </div>
       </div>
 
-      {/* Quick Navigation */}
-      <div className="quick-navigation">
-        <h3>Quick Access</h3>
-        <div className="quick-nav-buttons">
-          <button 
-            onClick={() => scrollToSection('guidelines-section')}
-            className="quick-nav-btn"
-          >
-            📋 Content Guidelines
-          </button>
-          <button 
-            onClick={() => scrollToSection('technical-section')}
-            className="quick-nav-btn"
-          >
-            ⚙️ Technical Standards & Quality
-          </button>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <div className="mission-hero">
         <div className="floating-icons">
