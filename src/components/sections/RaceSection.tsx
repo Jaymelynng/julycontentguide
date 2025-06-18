@@ -17,7 +17,7 @@ export function RaceSection() {
 
       <div className="content-section">
         <h3>🎯 Post Visual:</h3>
-        <p>Coaches participating in obstacle course/race activities with kids—showing coaches actually doing camp games and challenges alongside campers.</p>
+        <p>Coaches participating in obstacle course/race activities with kids—showing coaches having fun & doing camp games and challenges with campers.</p>
 
         <h3>📌 Content Notes:</h3>
         <p>Film one continuous race from start ("Ready, Set, Go!") to final reactions. Capture both action and fun! Focus on the playful interaction between coaches and kids. can be one or multiple shots angles</p>
