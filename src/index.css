@@ -1726,6 +1726,20 @@ h4 {
   background: var(--dropdown-bg);
 }
 
+.pdf-download-btn {
+  background: linear-gradient(135deg, #dc3545, #c82333) !important;
+  color: white !important;
+  border: 2px solid #dc3545 !important;
+  font-weight: 700 !important;
+}
+
+.pdf-download-btn:hover {
+  background: linear-gradient(135deg, #c82333, #a71e2a) !important;
+  border-color: #c82333 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4) !important;
+}
+
 /* Back to Top Button */
 .back-to-top-container {
   text-align: center;

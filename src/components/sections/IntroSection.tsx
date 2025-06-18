@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { generatePDF } from '../../utils/pdfGenerator';
 
 export function IntroSection() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -23,6 +24,12 @@ export function IntroSection() {
       <div className="quick-navigation">
         <h3>Quick Access</h3>
         <div className="quick-nav-buttons">
+          <button 
+            onClick={generatePDF}
+            className="quick-nav-btn pdf-download-btn"
+          >
+            📄 Download Full PDF Guide
+          </button>
           <button 
             onClick={() => scrollToSection('guidelines-section')}
             className="quick-nav-btn"
