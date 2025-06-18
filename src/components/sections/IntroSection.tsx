@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { PDFGeneratorButton } from '../PDFGeneratorButton';
+import { generateFullContentPDF } from '../../utils/fullContentPDF';
 
 export function IntroSection() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
   const toggleCard = (cardId: string) => {
     setExpandedCard(expandedCard === cardId ? null : cardId);
@@ -19,6 +20,16 @@ export function IntroSection() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleFullPDFGeneration = async () => {
+    setIsGeneratingPDF(true);
+    try {
+      await generateFullContentPDF();
+    } catch (error) {
+      console.error('Error generating full PDF:', error);
+    } finally {
+      setIsGeneratingPDF(false);
+    }
+  };
 
   return (
     <div id="mission-page" className="mission-page">
@@ -38,12 +49,13 @@ export function IntroSection() {
           >
             ⚙️ Technical Standards & Quality
           </button>
-          <PDFGeneratorButton
-            targetElementId="mission-page"
-            filename="July-Content-Mission-Guide.pdf"
-            buttonText="📄 Download PDF Guide"
+          <button
+            onClick={handleFullPDFGeneration}
+            disabled={isGeneratingPDF}
             className="quick-nav-btn pdf-download-btn"
-          />
+          >
+            {isGeneratingPDF ? '📄 Generating Complete Guide...' : '📄 Download Complete Guide (PDF)'}
+          </button>
         </div>
       </div>
 
