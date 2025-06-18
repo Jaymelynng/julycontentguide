@@ -1813,6 +1813,51 @@ h4 {
   background: linear-gradient(135deg, #20c997, #28a745) !important;
 }
 
+/* Content Section PDF Generator */
+.content-pdf-generator {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.content-section-pdf-btn {
+  background: linear-gradient(135deg, #28a745, #20c997) !important;
+  color: white !important;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.content-section-pdf-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+  background: linear-gradient(135deg, #20c997, #17a2b8) !important;
+}
+
+.content-section-pdf-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.content-section-pdf-btn.generating {
+  background: linear-gradient(135deg, var(--warm-gray), var(--muted-purple)) !important;
+}
+
 /* Back to Top Button */
 .back-to-top-container {
   text-align: center;
