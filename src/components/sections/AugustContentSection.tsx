@@ -58,6 +58,7 @@ export function AugustContentSection({ ideaNumber }: AugustContentSectionProps) 
         <div className="content-header">
           <h1>POST #{ideaNumber}: {content.title}</h1>
           <div className="content-meta">
+            {content.date && <span className="filming-date">📅 {content.date}</span>}
             <span className="filming-date">📅 Film July for August content</span>
             <div className="content-type-badge">{content.type}</div>
           </div>
@@ -67,21 +68,21 @@ export function AugustContentSection({ ideaNumber }: AugustContentSectionProps) 
           <h3>🎯 Post Visual:</h3>
           <p>{content.visual}</p>
 
-          <h3>📌 Content Notes:</h3>
+          <h3>📌 Visual Capture Instructions:</h3>
           <ul>
             {content.notes.map((note: string, index: number) => (
               <li key={index}>{note}</li>
             ))}
           </ul>
 
-          <h3>🎥 UPLOAD THESE 4 PHOTOS (With Storylines):</h3>
+          <h3>🎥 UPLOAD THESE {content.uploads.length} PHOTOS{content.uploads.length === 4 ? ' (With Storylines)' : ''}:</h3>
           <div className="upload-details">
             {content.uploads.map((upload: any) => (
               <div key={upload.number} className="upload-item august-photo-item">
                 <div className="photo-number">{upload.number}</div>
                 <div className="photo-content">
                   <h4>{upload.title}</h4>
-                  <div className="photo-theme">{upload.theme}</div>
+                  {upload.theme && <div className="photo-theme">{upload.theme}</div>}
                   <p><strong>Description:</strong> {upload.description}</p>
                   {upload.details && <p><strong>Details:</strong> {upload.details}</p>}
                 </div>
