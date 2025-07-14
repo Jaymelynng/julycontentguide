@@ -13,7 +13,7 @@ const navigationItems = [
   
   // August Content (Current Active)
   { id: 'august-intro', label: 'August Overview', icon: Home, category: 'august' },
-  { id: 'august-1', label: 'Idea 1', icon: Video, category: 'august' },
+  { id: 'august-1', label: 'POST #1: Back to School, Back to Balance', icon: Video, category: 'august' },
   { id: 'august-2', label: 'Idea 2', icon: Camera, category: 'august' },
   { id: 'august-3', label: 'Idea 3', icon: Award, category: 'august' },
   { id: 'august-4', label: 'Idea 4', icon: Users, category: 'august' },
