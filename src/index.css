@@ -1984,6 +1984,11 @@ h4 {
   color: white;
 }
 
+.status-badge.ready {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
 .month-card h3 {
   color: #8B4A4A !important;
   font-size: 1.8rem;

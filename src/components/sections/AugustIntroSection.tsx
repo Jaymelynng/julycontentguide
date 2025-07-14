@@ -30,9 +30,9 @@ export function AugustIntroSection() {
         <div className="content-grid">
           <div className="content-preview-card">
             <div className="card-number">1</div>
-            <h4>Content Idea 1</h4>
-            <p>Ready to be defined - your creative input needed!</p>
-            <span className="status-badge planning">Planning Phase</span>
+            <h4>Back to School, Back to Balance</h4>
+            <p>4 square photos showcasing beam balance and school readiness</p>
+            <span className="status-badge ready">Ready to Create</span>
           </div>
           
           <div className="content-preview-card">
