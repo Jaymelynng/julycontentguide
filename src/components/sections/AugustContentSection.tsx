@@ -21,8 +21,8 @@ const augustContent: Record<string, any> = {
         number: 1,
         title: 'Class Walking Uphill on Beam',
         theme: '📚 Academic Focus',
-        description: 'Kids walking uphill with books balanced on their heads',
-        details: 'Use a floor beam with trapezoid or carpet beam to simulate incline'
+        description: 'Use props like books for a back-to-school theme.',
+        details: 'Definitely not asking for you to make a standard AAI beam adjusted to include this, so this will probably be for younger kids where you can use a floor beam with a trapezoid or carpet beam to show the incline.'
       },
       {
         number: 2,
