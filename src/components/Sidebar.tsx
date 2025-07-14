@@ -14,14 +14,14 @@ const navigationItems = [
   // August Content (Current Active)
   { id: 'august-intro', label: 'August Overview', icon: Home, category: 'august' },
   { id: 'august-1', label: 'POST #1: Back to School, Back to Balance', icon: Video, category: 'august' },
-  { id: 'august-2', label: 'Idea 2', icon: Camera, category: 'august' },
-  { id: 'august-3', label: 'Idea 3', icon: Award, category: 'august' },
-  { id: 'august-4', label: 'Idea 4', icon: Users, category: 'august' },
-  { id: 'august-5', label: 'Idea 5', icon: Brain, category: 'august' },
-  { id: 'august-6', label: 'Idea 6', icon: Video, category: 'august' },
-  { id: 'august-7', label: 'Idea 7', icon: Camera, category: 'august' },
-  { id: 'august-8', label: 'Idea 8', icon: Award, category: 'august' },
-  { id: 'august-9', label: 'Idea 9', icon: Users, category: 'august' },
+  { id: 'august-2', label: 'Post 2', icon: Camera, category: 'august' },
+  { id: 'august-3', label: 'Post 3', icon: Award, category: 'august' },
+  { id: 'august-4', label: 'Post 4', icon: Users, category: 'august' },
+  { id: 'august-5', label: 'Post 5', icon: Brain, category: 'august' },
+  { id: 'august-6', label: 'Post 6', icon: Video, category: 'august' },
+  { id: 'august-7', label: 'Post 7', icon: Camera, category: 'august' },
+  { id: 'august-8', label: 'Post 8', icon: Award, category: 'august' },
+  { id: 'august-9', label: 'Post 9', icon: Users, category: 'august' },
   
   // July Archive
   { id: 'july-archive', label: 'July Archive', icon: Archive, category: 'archive' },
