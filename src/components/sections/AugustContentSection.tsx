@@ -56,7 +56,7 @@ const augustContent: Record<string, any> = {
 export function AugustContentSection({ ideaNumber }: AugustContentSectionProps) {
   const content = augustContent[ideaNumber];
   
-  if (content) {
+  if (content && content.visual && content.notes && content.uploads) {
     return (
       <div className="august-content-section">
         <div className="content-header">
