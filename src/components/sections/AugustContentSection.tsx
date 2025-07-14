@@ -8,7 +8,7 @@ const augustContent: Record<string, any> = {
   '1': {
     title: 'Back to School, Back to Balance',
     type: 'PHOTO CAROUSEL | 4 SQUARE PHOTOS',
-    visual: 'Four square photos that showcase how beam balance builds confidence and directly translates to school readiness. "If they can conquer this level of balance and focus, they\'re ready for anything school throws at them." Each image tells a story — from concentration to play to composure — connecting gymnastics movement to real-world skills kids need for the classroom.',
+    visual: 'Four square photos that showcase how beam balance builds confidence and directly translates to school readiness.\n"If they can conquer this level of balance and focus, they\'re ready for anything school throws at them."\nEach image tells a story — from concentration to play to composure — connecting gymnastics movement to real-world skills kids need for the classroom.',
     notes: [
       '🖼️ Take 4 photos in square (1:1) aspect ratio',
       '☀️ Prioritize clean lighting and visible kid expressions',
