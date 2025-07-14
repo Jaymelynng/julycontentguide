@@ -107,7 +107,7 @@ export function AugustContentSection({ ideaNumber }: AugustContentSectionProps) 
   return (
     <div className="august-content-section">
       <div className="content-header">
-        <h1>August Content Idea {ideaNumber}</h1>
+        <h1>August Content Post {ideaNumber}</h1>
         <div className="status-badge planning">🚧 In Development</div>
       </div>
 
@@ -116,7 +116,7 @@ export function AugustContentSection({ ideaNumber }: AugustContentSectionProps) 
         <div className="notice-content">
           <h3>Content Under Development</h3>
           <p>
-            This content idea is currently being developed. Once finalized, it will include:
+            This content post is currently being developed. Once finalized, it will include:
           </p>
           <ul>
             <li>📋 Detailed content requirements</li>
@@ -131,7 +131,7 @@ export function AugustContentSection({ ideaNumber }: AugustContentSectionProps) 
       <div className="placeholder-content">
         <h3>What to Expect</h3>
         <p>
-          Each August content idea will follow the same proven format as the July content:
+          Each August content post will follow the same proven format as the July content:
         </p>
         
         <div className="format-preview">
