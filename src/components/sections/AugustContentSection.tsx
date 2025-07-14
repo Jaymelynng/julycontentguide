@@ -46,6 +46,10 @@ const augustContent: Record<string, any> = {
         details: 'Look for proud facial expression — "I\'ve got this" energy'
       }
     ]
+  },
+  '3': {
+    title: 'Power Starts Here: Roundoff Power Source',
+    type: 'PHOTOS + VIDEO | 2 PHOTOS + 1 VIDEO',
   }
 };
 
