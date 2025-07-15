@@ -2725,7 +2725,7 @@ h4 {
   transition: all 0.3s ease;
 }
 
-  background: #d4a5a5;
+  background: #c4969c;
 .upload-preview-item:hover {
   background: var(--accent-color);
   transform: translateY(-1px);
