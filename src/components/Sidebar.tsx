@@ -13,9 +13,9 @@ const navigationItems = [
   
   // August Content (Current Active)
   { id: 'august-intro', label: 'August Overview', icon: Home, category: 'august' },
-  { id: 'august-1', label: 'POST #1: Back to School, Back to Balance', icon: Video, category: 'august' },
-  { id: 'august-2', label: 'POST #2: Pencil Grip Strength From Bars', icon: Camera, category: 'august' },
-  { id: 'august-3', label: 'POST #3: Power Starts Here: Roundoff Power Source', icon: Award, category: 'august' },
+  { id: 'august-1', label: 'Back to School, Back to Balance', icon: Video, category: 'august' },
+  { id: 'august-2', label: 'Pencil Grip Strength From Bars', icon: Camera, category: 'august' },
+  { id: 'august-3', label: 'Power Starts Here: Roundoff Power Source', icon: Award, category: 'august' },
   { id: 'august-4', label: 'Post 4', icon: Users, category: 'august' },
   { id: 'august-5', label: 'Post 5', icon: Brain, category: 'august' },
   { id: 'august-6', label: 'Post 6', icon: Video, category: 'august' },
