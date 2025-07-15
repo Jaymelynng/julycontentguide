@@ -65,27 +65,78 @@ export function AugustContentSection({ ideaNumber }: AugustContentSectionProps) 
           </div>
         </div>
 
-        <div className="content-section">
-          <h3>🎯 Post Visual:</h3>
-          <p>{content.visual}</p>
+        <div className="post-visual-section">
+          <div className="section-header">
+            <span className="section-icon">🎯</span>
+            <h3>Post Visual</h3>
+          </div>
+          <div className="section-content">
+            <p>{content.visual}</p>
+          </div>
+        </div>
 
-          <h3>📌 Visual Capture Instructions:</h3>
-          <ul>
-            {content.notes.map((note: string, index: number) => (
-              <li key={index}>{note}</li>
-            ))}
-          </ul>
+        <div className="content-notes-section">
+          <div className="section-header">
+            <span className="section-icon">📌</span>
+            <h3>Content Notes</h3>
+          </div>
+          <div className="section-content">
+            <ul className="notes-list">
+              {content.notes.map((note: string, index: number) => (
+                <li key={index} className="note-item">
+                  <span className="note-bullet">•</span>
+                  <span className="note-text">{note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-          <h3>🎥 UPLOAD THESE {content.uploads.length} PHOTOS{content.uploads.length === 4 ? ' (With Storylines)' : ''}:</h3>
-          <div className="upload-details">
+        <div className="what-to-upload-section">
+          <div className="section-header">
+            <span className="section-icon">📋</span>
+            <h3>What to Upload:</h3>
+          </div>
+          <div className="upload-preview-list">
             {content.uploads.map((upload: any) => (
-              <div key={upload.number} className="upload-item august-photo-item">
-                <div className="photo-number">{upload.number}</div>
-                <div className="photo-content">
-                  <h4>{upload.title}</h4>
-                  {upload.theme && <div className="photo-theme">{upload.theme}</div>}
-                  <p><strong>Description:</strong> {upload.description}</p>
-                  {upload.details && <p><strong>Details:</strong> {upload.details}</p>}
+              <div key={upload.number} className="upload-preview-item">
+                <div className="preview-number">{upload.number}</div>
+                <div className="preview-content">
+                  <h4 className="preview-title">{upload.title}</h4>
+                  <span className="preview-badge">PHOTO</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="upload-details-section">
+          <div className="section-header">
+            <span className="section-icon">📸</span>
+            <h3>UPLOAD THESE {content.uploads.length} PHOTOS{content.uploads.length === 4 ? ' (With Storylines)' : ''}</h3>
+          </div>
+          <div className="detailed-uploads">
+            {content.uploads.map((upload: any, index: number) => (
+              <div key={upload.number} className="detailed-upload-item">
+                <div className="upload-number-badge">{upload.number}</div>
+                <div className="upload-details-content">
+                  <h4 className="upload-title">{upload.title}</h4>
+                  {upload.theme && (
+                    <div className="upload-theme-badge">
+                      <span className="theme-icon">🎯</span>
+                      <span className="theme-text">{upload.theme}</span>
+                    </div>
+                  )}
+                  <div className="upload-description">
+                    <span className="description-bullet">•</span>
+                    <span>{upload.description}</span>
+                  </div>
+                  {upload.details && (
+                    <div className="upload-details">
+                      <span className="details-bullet">•</span>
+                      <span>{upload.details}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
