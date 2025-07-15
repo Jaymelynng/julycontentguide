@@ -2312,15 +2312,15 @@ h4 {
   border-left: 4px solid #d69e2e;
 }
 
-.preview-number {
+.upload-preview-item .preview-number {
+  width: 32px;
+  height: 32px;
+  background: #b8888f;
+  color: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  background: #d69e2e;
-  color: white;
-  border-radius: 50%;
   font-weight: bold;
   font-size: 0.9rem;
 }
@@ -2725,9 +2725,8 @@ h4 {
   transition: all 0.3s ease;
 }
 
+.archive-btn:hover {
   background: #c4969c;
-.upload-preview-item:hover {
-  background: var(--accent-color);
   transform: translateY(-1px);
 }
 
