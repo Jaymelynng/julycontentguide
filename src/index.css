@@ -2726,6 +2726,7 @@ h4 {
 }
 
   background: #d4a5a5;
+.upload-preview-item:hover {
   background: var(--accent-color);
   transform: translateY(-1px);
 }
