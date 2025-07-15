@@ -7,43 +7,40 @@ interface AugustContentSectionProps {
 const augustContent: Record<string, any> = {
   '1': {
     title: 'Back to School, Back to Balance',
+    date: 'Film July for August content',
     type: 'PHOTO CAROUSEL | 4 SQUARE PHOTOS',
-    visual: 'Four square photos that showcase how beam balance builds confidence and directly translates to school readiness.\n"If they can conquer this level of balance and focus, they\'re ready for anything school throws at them."\nEach image tells a story — from concentration to play to composure — connecting gymnastics movement to real-world skills kids need for the classroom.',
+    visual: 'Four square photos that showcase how beam balance builds confidence and directly translates to school readiness.\n\n"If they can conquer this level of balance and focus, they\'re ready for anything school throws at them."\n\nEach image tells a story — from concentration to play to composure — connecting gymnastics movement to real-world skills kids need for the classroom.',
     notes: [
-      '🖼️ Take 4 photos in square (1:1) aspect ratio',
-      '☀️ Prioritize clean lighting and visible kid expressions',
-      '📐 Make posture and balance visually impressive — aim for the "Wow, my kid could do that" reaction',
-      '⚙️ Check camera settings before shooting — pixel enhancement and rotation create delays',
-      '✅ Submit post-ready images to streamline editing and carousel design'
+      'Take 4 photos in square (1:1) aspect ratio',
+      'Prioritize clean lighting and visible kid expressions',
+      'Make posture and balance visually impressive — aim for the "Wow, my kid could do that" reaction',
+      'Check camera settings before shooting — pixel enhancement and rotation create delays',
+      'Submit post-ready images to streamline editing and carousel design'
     ],
     uploads: [
       {
         number: 1,
-        title: 'Class Walking Uphill on Beam',
-        theme: '📚 Academic Focus',
-        description: 'Use props like books for a back-to-school theme.',
-        details: 'Definitely not asking for you to make a standard AAI beam adjusted to include this, so this will probably be for younger kids where you can use a floor beam with a trapezoid or carpet beam to show the incline.'
+        title: 'Uphill Beam Walk with Props – Multitasking & Sensory Control',
+        description: 'Clean visual line of incline: Use a floor beam with a trapezoid or carpet beam to show the incline.',
+        details: 'Balancing an object on their head with arms extended. If you have any school-themed props to balance, that would be fantastic! The shot should be wide from the side, showing the whole class and the beam on the incline.'
       },
       {
         number: 2,
-        title: 'Forward Shot – One-Foot Balance',
-        theme: '🦶 Handling Uncertainty',
-        description: 'A child balancing on one foot with a school-themed item (book, pencil case, etc.)',
-        details: 'Highlight narrow beam width and visual precision. Communicates steady focus and independent problem-solving'
+        title: 'One-Foot Beam Balance – "Steady Focus"',
+        description: 'A kiddo balancing confidently on one foot',
+        details: 'Shot from the front to show narrow beam width and control'
       },
       {
         number: 3,
-        title: 'Game Example – Skill Through Play',
-        theme: '🎯 Problem-Solving Meets Movement',
+        title: 'Beam Game Action – "Problem-Solving Play"',
         description: 'Capture a playful challenge like hula hoop balance or pit-throw game',
-        details: 'Show how we teach hard skills through engaging, imaginative formats. Connects motor planning to flexible thinking and emotional regulation'
+        details: 'Look for excitement, thinking faces, or teamwork'
       },
       {
         number: 4,
-        title: 'Final Balance Pose – "I\'m Ready" Moment',
-        theme: '🎒 Composure and Confidence',
-        description: 'Child finishing a skill or striking a balanced end pose (salute, arms out, steady stand)',
-        details: 'Look for proud facial expression — "I\'ve got this" energy'
+        title: 'Final Pose – "I\'m Ready" Moment',
+        description: 'I\'ve got this" energy',
+        details: 'A confident finish — lunge pose after landing, or strong jump with strong arms mid-air. Big proud smile, arms strong or overhead. Feels like a victory moment — "I nailed it"'
       }
     ]
   },
