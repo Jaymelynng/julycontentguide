@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { QuickGuidePDFButton } from '../QuickGuidePDFButton';
+import { EnhancedWelcome } from '../EnhancedWelcome';
 
 export function IntroSection() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -21,6 +22,9 @@ export function IntroSection() {
 
   return (
     <div id="mission-page" className="mission-page">
+      {/* Enhanced Welcome Section */}
+      <EnhancedWelcome />
+      
       {/* Quick Guide Download */}
       <div className="quick-guide-download">
         <div className="pdf-generator-container">
